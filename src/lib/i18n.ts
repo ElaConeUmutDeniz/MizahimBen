@@ -6,7 +6,7 @@ import { Language, SupportedLanguages } from '../types';
 const translations: Record<Language, Record<string, string>> = {
   tr: {
     siteTitle: "Mizahım Ben",
-    siteDescription: "Sadece güzel mizah, sadece medeni güldürü anlayışı. - En son mizahları farklı kaynaklardan gör",
+    siteDescription: "Sadece güzel mizah, sadece medeni güldürü anlayışı. - En son mizahları farklı kaynaklardan gör. Yapay zeka destekli!",
     currentJokes: "Güncel Mizahlar",
     oldJokes: "Eski Mizahlar",
     aiAssistant: "Yapay Zeka Asistanı",
@@ -47,7 +47,7 @@ const translations: Record<Language, Record<string, string>> = {
   },
   en: {
     siteTitle: "Mizahim Ben - I'm a Joke",
-    siteDescription: "Just good humor, just a civilized sense of laughter. - See the latest jokes from different sources",
+    siteDescription: "Just good humor, just a civilized sense of laughter. - See the latest jokes from different sources. AI-included!",
     currentJokes: "Current Jokes",
     oldJokes: "Old Jokes",
     aiAssistant: "AI Assistant",
@@ -87,7 +87,7 @@ const translations: Record<Language, Record<string, string>> = {
     errorAIAssistant: "An error occurred while communicating with the AI. Please try again later."
   },
   uz: {
-    siteTitle: "Mizahim Ben - Men Hazilman",
+    siteTitle: "Mizahim Ben - Men Hazilman ",
     currentJokes: "Joriy Hazillar",
     oldJokes: "Eski Hazillar",
     settings: "Sozlamalar",
