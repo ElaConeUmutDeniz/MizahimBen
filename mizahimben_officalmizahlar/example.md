@@ -4,6 +4,6 @@ Tüm bu komik bok şarkılarını çıkartan kanal uzun süre önce kapanmışt�
 
 *13:52 2.07.2025*
 <details>
-Mizah Açıklaması
-  <summary>Eskiden bi kanal vardı hali hazırda şarkıları bok kaka sözleri ile yapıyodu o kanal uzun zamandır gözükmüyo. Youtube da aratırsanız o bok şarkı videolarını paylaşan baya bi kanal var ama bi bok şarkısı gitti kanalın</summary>
+Eskiden bi kanal vardı hali hazırda şarkıları bok kaka sözleri ile yapıyodu o kanal uzun zamandır gözükmüyo. Youtube da aratırsanız o bok şarkı videolarını paylaşan baya bi kanal var ama bi bok şarkısı gitti kanalın
+  <summary>Mizah Açıklaması</summary>
 </details>
