@@ -1,2 +1,3 @@
-*zort* kaka 
-<script>alert("sıçacaksın")</script>
+<details>çiş
+  <summary>Çiş kaka</summary>
+</details>
