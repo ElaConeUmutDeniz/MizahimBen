@@ -11,6 +11,7 @@ const Footer: React.FC = () => {
             <div className="container mx-auto px-4 text-center text-sm">
                 <p className="mb-2">{t('copyright')}</p>
                 <p className="mb-2 font-semibold">{t('geminiDisclaimer')}</p>
+                <a href="https://www.instagram.com/MizahimBen">Instagram: @mizahimben</a>
                 <p>
                     <SafeMailto email="contact@mizahimben.com">
                         {t('contact')}
