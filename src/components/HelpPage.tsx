@@ -23,7 +23,7 @@ const HelpPage: React.FC = () => {
 }`;
 
     const allowedJsonExample = `{
-  "Harika Mizahlar": "https://harikamizahlar.com/kaynak.json",
+  "Harika Mizahlar(örnek başlık)": "https://harikamizahlar.com/kaynak.json",
   "Komik Şeyler": "https://komik.net/mizahlar.json"
 }`;
 
@@ -32,31 +32,30 @@ const HelpPage: React.FC = () => {
             <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('helpTitle')}</h1>
             <div className="prose dark:prose-invert max-w-none text-[var(--secondary-text)] space-y-4">
                 <p>
-                    Mizahım Ben, farklı kaynaklardan mizahları gösterebilen esnek bir platformdur. Kendi mizah koleksiyonunuzu oluşturup siteye eklemek için aşağıdaki adımları izleyebilirsiniz.
+                    Mizahım Ben, farklı kaynaklardan mizahları gösterebilen esnek bir sitedir. Kendi mizah koleksiyonunuzu oluşturup siteye eklemek için aşağıdaki adımları izleyebilirsiniz.
                 </p>
 
                 <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 1: Mizahlarınızı Yazın</h2>
                 <p>
-                    Her bir mizahınızı ayrı bir Markdown (.md) dosyasına yazın. Markdown, metni kolayca formatlamanıza olanak tanır. Örneğin, başlıklar için <code>#</code>, listeler için <code>-</code> veya <code>*</code> kullanabilirsiniz. Bu dosyaları internet üzerinden erişilebilecek bir yere yüklemelisiniz (örneğin, GitHub Gist, Pastebin veya kendi web sunucunuz).
+                    Her bir mizahınızı ayrı bir Markdown (.md) uzantılı dosyaya yazın. Markdown, metne kolayca stiller, resimler eklemenize olanak tanır. Örneğin, başlıklar için <code># yaz</code>, resim için <code>![link yüklenemediğinde gösterilecek metin](resim linki)</code> listeler için <code>- yaz </code> veya <code>* yaz *</code> kullanabilirsiniz. Bu dosyaları internet üzerinden erişilebilecek bir yere yüklemelisiniz (örneğin, GitHub Gist, pastee.dev veya kendi web sunucunuz).
                 </p>
 
                 <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 2: Kaynak JSON Dosyasını Oluşturun</h2>
                 <p>
-                    Tüm mizahlarınızın linklerini içeren bir JSON dosyası oluşturmanız gerekmektedir. Bu dosya, <code>simdiki</code> (ana sayfada görünecekler) ve <code>eski</code> (arşivde görünecekler) adında iki anahtar içermelidir. Bu anahtarların değeri, Markdown dosyalarınızın direkt linklerini içeren birer dizi (array) olmalıdır.
+                    Tüm mizahlarınızın linklerini içeren bir JSON(.json uzantılı) dosyası oluşturmanız gerekmektedir. Bu dosya, <code>simdiki</code> (ana sayfada görünecekler) ve <code>eski</code> (arşivde görünecekler) adında iki anahtar içermelidir. Bu anahtarların değeri("simdiki: "linkiniz buraya, bu anahtar değeri" örnek), Markdown dosyalarınızın linklerini içeren birer liste olmalıdır. Markdown dosyasının olduğu linke tıkladığınızda sadece markdown dosyasının içeriği görünmeli.
                 </p>
                 <p>İşte bir örnek format:</p>
                 <CodeBlock>{exampleJson}</CodeBlock>
 
                 <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 3: Kaynağınızı Ekleyin</h2>
                 <p>
-                    Oluşturduğunuz JSON dosyasını da internet üzerinden erişilebilir bir yere yükleyin. Ardından, Mizahım Ben sitesindeki Ayarlar panelinden "Üçüncü Parti Kaynak" seçeneğini kullanarak bu JSON dosyanızın linkini girebilir ve kendi mizahlarınızı görüntüleyebilirsiniz.
+                    Oluşturduğunuz JSON dosyasını da internet üzerinden erişilebilir bir yere(pastee.dev ya da github gist servislerini kullanabilirsiniz) yükleyin.
                 </p>
 
                  <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 4: Kaynağınızı Listeletmek (İsteğe Bağlı)</h2>
                 <p>
-                    Eğer mizah kaynağınızın herkesin görebileceği "Mizah Kaynağı" listesinde yer almasını istiyorsanız, bize e-posta yoluyla ulaşabilirsiniz. Kaynağınız incelendikten sonra uygun görülürse resmi listeye eklenecektir. Bu liste, <a href="https://raw.githubusercontent.com/ElaConeUmutDeniz/MizahimBen/main/mizahimben_officalmizahlar/allowed.json" target="_blank" rel="noopener noreferrer" className="text-[color:var(--accent-color)] hover:underline">bu dosyaya</a> benzer bir yapıda olmalıdır:
+                    Eğer mizah kaynağınızın herkesin görebileceği "Mizah Kaynağı" listesinde yer almasını istiyorsanız, bize e-posta yoluyla ulaşıp kaynak linkinizi gönderebilirsiniz. Kaynağınız incelendikten sonra uygun görülürse resmi listeye eklenecektir.
                 </p>
-                <CodeBlock>{allowedJsonExample}</CodeBlock>
 
                 <p>
                     Herhangi bir sorunuz olursa, iletişim e-posta adresimizden bize ulaşmaktan çekinmeyin.
