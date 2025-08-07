@@ -1,9 +1,8 @@
 {
   "simdiki": [
-    "https://example.com/markdown/yeni_mizah_1.md",
-    "https://example.com/markdown/yeni_mizah_2.md"
+    "https://raw.githubusercontent.com/ElaConeUmutDeniz/MizahimBen/refs/heads/main/mizahimben_officalmizahlar/charles oliveira.mdd",
   ],
   "eski": [
-    "https://example.com/markdown/eski_mizah_1.md"
+    "https://raw.githubusercontent.com/ElaConeUmutDeniz/MizahimBen/refs/heads/main/mizahimben_officalmizahlar/charles oliveira.md"
   ]
 }
