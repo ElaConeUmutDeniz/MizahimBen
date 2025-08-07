@@ -3,7 +3,7 @@ import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { AIMessage } from "../types";
 
 // This check is to prevent crashing in environments where process.env is not defined.
-const apiKey = typeof process !== 'undefined' ? import.meta.env.API_KEY : undefined;
+const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : undefined;
 
 if (!apiKey) {
     console.warn("API_KEY environment variable not set. Gemini API features will be disabled.");
