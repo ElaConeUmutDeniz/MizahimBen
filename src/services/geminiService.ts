@@ -4,7 +4,7 @@ import { AIMessage } from "../types";
 
 // This check is to prevent crashing in environments where process.env is not defined.
 const apiKey = process.env.API_KEY 
-console.log(process.env)
+console.log(process.env + process + "fart")
 if (!apiKey) {
     console.warn("API_KEY environment variable not set. Gemini API features will be disabled.");
 }
