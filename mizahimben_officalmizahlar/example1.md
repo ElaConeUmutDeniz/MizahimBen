@@ -1,1 +1,1 @@
-Eski.
+Eskiler buraya.
