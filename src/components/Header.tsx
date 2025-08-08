@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
                             <NavButton label="Eski" icon={<ArchiveIcon />} isActive={currentView === 'old'} onClick={() => setView('old')} />
                             <NavButton label="Yapay Zeka" icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
                             <NavButton label="Yardım" icon={<BookOpenIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
-                            <NavButton label="İndir" icon={<AndroidIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
+                            <NavButton label="İndir" icon={<AndroidIcon />} isActive={currentView === 'install'} onClick={() => setView('install')} />
                             <button
                                 onClick={() => setIsSettingsOpen(true)}
                                 className="p-2 rounded-full text-[var(--secondary-text)] hover:bg-[var(--secondary-bg)] hover:text-[color:var(--accent-color)] transition-colors"

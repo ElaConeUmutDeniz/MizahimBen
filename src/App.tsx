@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import JokeCard from './components/JokeCard';
 import AIAssistant from './components/AIAssistant';
 import HelpPage from './components/HelpPage';
+import Install from './components/install'
 import { useTranslation } from './lib/i18n';
 import { getJokeSource } from './services/jokeService';
 import { JokeSource, View } from './types';
@@ -74,6 +75,8 @@ const MainContent: React.FC = () => {
                 return <AIAssistant />;
             case 'help':
                 return <HelpPage />;
+            case 'install':
+                return <Install />
             default:
                 return <div>{t('pageNotFound')}</div>;
         }

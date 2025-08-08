@@ -1,12 +1,13 @@
+import type { Context } from "@netlify/edge-functions";
 
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { AIMessage } from "../types";
 
-// This check is to prevent crashing in environments where process.env is not defined.
-const apiKey = process.env.API_KEY 
+// For EDGE FUNCTIONS, you must use Netlify.env to access variables.
+const apiKey = Netlify.env.get("API_KEY");
 
 if (!apiKey) {
-    console.warn("API_KEY environment variable not set. Gemini API features will be disabled.");
+    console.warn("API_KEY environment variable not found using Netlify.env.get(). Gemini API features will be disabled.");
 }
 
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
@@ -18,8 +19,6 @@ export const getAIAssistantResponse = async (history: AIMessage[], newMessage: s
         return "Gemini API key is not configured. The AI assistant is disabled.";
     }
 
-    // A simple prompt engineering to keep the conversation going.
-    // The actual `chat.sendMessage` would be better but this works for single turns.
     const fullPrompt = `${history.map(m => `${m.role}: ${m.content}`).join('\n')}\nuser: ${newMessage}\nmodel:`;
     
     try {

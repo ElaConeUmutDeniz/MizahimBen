@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from '../lib/i18n';
 
@@ -12,9 +11,10 @@ const CodeBlock: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 const HelpPage: React.FC = () => {
     const { t } = useTranslation();
+    
     const exampleJson = `{
   "simdiki": [
-    "https://example.com/markdown/yeni_mizah_1.md",
+    "https://pastee.dev/d/gW6VSs4s",
     "https://example.com/markdown/yeni_mizah_2.md"
   ],
   "eski": [
@@ -32,33 +32,40 @@ const HelpPage: React.FC = () => {
             <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('helpTitle')}</h1>
             <div className="prose dark:prose-invert max-w-none text-[var(--secondary-text)] space-y-4">
                 <p>
-                    Mizahım Ben, farklı kaynaklardan mizahları gösterebilen esnek bir sitedir. Kendi mizah koleksiyonunuzu oluşturup siteye eklemek için aşağıdaki adımları izleyebilirsiniz.
+                    {t('helpIntro')}
                 </p>
 
-                <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 1: Mizahlarınızı Yazın</h2>
+                <h2 className="text-2xl font-semibold !mt-8 !mb-3">{t('helpStep1Title')}</h2>
                 <p>
-                    Her bir mizahınızı ayrı bir Markdown (.md) uzantılı dosyaya yazın. Markdown, metne kolayca stiller, resimler eklemenize olanak tanır. Örneğin, başlıklar için <code># yaz</code>, resim için <code>![link yüklenemediğinde gösterilecek metin](resim linki)</code> listeler için <code>- yaz </code> veya <code>* yaz *</code> kullanabilirsiniz. Bu dosyaları internet üzerinden erişilebilecek bir yere yüklemelisiniz (örneğin, GitHub Gist, pastee.dev veya kendi web sunucunuz).
+                    {t('helpStep1Desc1')} {' '}
+                    <code># yaz</code>, {t('helpStep1Desc2')}{' '}
+                    <code>![link yüklenemediğinde gösterilecek metin](resim linki)</code> {' '}
+                    {t('helpStep1Desc3')} {' '}
+                    <code>- yaz </code> {t('helpStep1Desc4')}{' '}
+                    <code>* yaz *</code> {t('helpStep1Desc5')}
                 </p>
 
-                <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 2: Kaynak JSON Dosyasını Oluşturun</h2>
+                <h2 className="text-2xl font-semibold !mt-8 !mb-3">{t('helpStep2Title')}</h2>
                 <p>
-                    Tüm mizahlarınızın linklerini içeren bir JSON(.json uzantılı) dosyası oluşturmanız gerekmektedir. Bu dosya, <code>simdiki</code> (ana sayfada görünecekler) ve <code>eski</code> (arşivde görünecekler) adında iki anahtar içermelidir. Bu anahtarların değeri("simdiki: "linkiniz buraya, bu anahtar değeri" örnek), Markdown dosyalarınızın linklerini içeren birer liste olmalıdır. Markdown dosyasının olduğu linke tıkladığınızda sadece markdown dosyasının içeriği görünmeli.
+                    {t('helpStep2Desc1')}{' '}
+                    <code>simdiki</code> {t('helpStep2Desc2')}{' '}
+                    <code>eski</code> {t('helpStep2Desc3')}
                 </p>
-                <p>İşte bir örnek format:</p>
+                <p>{t('helpExampleFormat')}</p>
                 <CodeBlock>{exampleJson}</CodeBlock>
 
-                <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 3: Kaynağınızı Ekleyin</h2>
+                <h2 className="text-2xl font-semibold !mt-8 !mb-3">{t('helpStep3Title')}</h2>
                 <p>
-                    Oluşturduğunuz JSON dosyasını da internet üzerinden erişilebilir bir yere(pastee.dev ya da github gist servislerini kullanabilirsiniz) yükleyin.
+                    {t('helpStep3Desc')}
                 </p>
 
-                 <h2 className="text-2xl font-semibold !mt-8 !mb-3">Adım 4: Kaynağınızı Listeletmek (İsteğe Bağlı)</h2>
+                <h2 className="text-2xl font-semibold !mt-8 !mb-3">{t('helpStep4Title')}</h2>
                 <p>
-                    Eğer mizah kaynağınızın herkesin görebileceği "Mizah Kaynağı" listesinde yer almasını istiyorsanız, bize e-posta yoluyla ulaşıp kaynak linkinizi gönderebilirsiniz. Kaynağınız incelendikten sonra uygun görülürse resmi listeye eklenecektir.
+                    {t('helpStep4Desc')}
                 </p>
 
                 <p>
-                    Herhangi bir sorunuz olursa, iletişim e-posta adresimizden bize ulaşmaktan çekinmeyin.
+                    {t('ContactUs')}
                 </p>
             </div>
         </div>
