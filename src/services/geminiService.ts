@@ -4,7 +4,7 @@ import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { AIMessage } from "../types";
 
 // For EDGE FUNCTIONS, you must use Netlify.env to access variables.
-const apiKey = Netlify.env.get("API_KEY");
+const apiKey = process.env
 
 if (!apiKey) {
     console.warn("API_KEY environment variable not found using Netlify.env.get(). Gemini API features will be disabled.");
