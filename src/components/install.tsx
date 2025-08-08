@@ -10,7 +10,7 @@ const Install: React.FC = () => {
             <a href="mizahimben.apk"  style={{display:'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', maxWidth: '120px', maxHeight: '50px', cursor: 'pointer' }}
   className="px-4 py-2 bg-[color:var(--accent-color)] text-white font-semibold rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition"
             >
-<img src="./components/icons/download-install-line-icon.svg" className="w-6 h-6 flex-shrink-0"/>
+<img src="download-install-line-icon.svg" className="w-6 h-6 flex-shrink-0"/>
             {t('Install3')}</a>
             </div>
 
