@@ -18,7 +18,7 @@ const HelpPage: React.FC = () => {
     "https://example.com/markdown/yeni_mizah_2.md"
   ],
   "eski": [
-    "https://example.com/markdown/eski_mizah_1.md"
+    "https://example.com/markdown/bildiri_1.md" 
   ]
 }`;
 
@@ -65,7 +65,7 @@ const HelpPage: React.FC = () => {
                 </p>
 
                 <p>
-                    {t('ContactUs')}
+                    {t('helpContactUs')}
                 </p>
             </div>
         </div>
