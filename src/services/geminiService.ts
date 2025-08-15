@@ -44,7 +44,7 @@ import { AIMessage } from "../types";
 export const getAIAssistantResponse = async (history: AIMessage[], newMessage: string): Promise<string> => {
     try {
         // The path to your function is automatically available at /.netlify/functions/
-        const response = await fetch('/netlify/functions/Ooo', {
+        const response = await fetch('/.netlify/functions/Ooo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
