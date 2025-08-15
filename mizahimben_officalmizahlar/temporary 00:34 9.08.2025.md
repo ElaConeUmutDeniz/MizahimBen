@@ -1,1 +1,1 @@
-* 1 gündür mizah yayınlamadık. Geliştiricinin birisinin interneti yok, birisi ise yapay zeka ve arayüz iyileştirme özelliklerinde çalışıyor. Yeni 'indir' sekmesi ile Android uygulamamızı indirebilir, mizahlar yayınlanır yayınlanmaz bildirim ile haberdar olabilrsiniz.  Mizahım Ben'de mizahlar bizle sınırlı olmayacak ve sınırlı kalmamalı. Kendi mizahlarınızı istediğiniz zaman paylaşabilirsiniz. Güçlü bir yenilenmeden sonra bomba gibi mizahlar yapacağız.
+**Şuan bu website, yoğun bakım modunda ve pek çok özellik rafine ediliyor, iyileştiriliyor. **
