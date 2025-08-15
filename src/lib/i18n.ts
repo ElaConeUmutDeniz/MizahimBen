@@ -2,12 +2,12 @@ import { useContext, useCallback } from 'react';
 import { SettingsContext } from '../hooks/useSettings';
 import { Language, SupportedLanguages } from '../types';
 
-const translations: Record<Language, Record<string, string>> = {
+Record<Language, Record<string, string>> = {
     "tr": {
     "siteTitle": "Mizahım Ben",
     "siteDescription": "Sadece güzel mizah, sadece medeni güldürü anlayışı. - En son mizahları farklı kaynaklardan gör. Yapay zeka destekli!",
     "currentJokes": "Güncel Mizahlar",
-    "oldJokes": "Eski Mizahlar",
+    "oldJokes": "Bildiriler / Haberler",
     "aiAssistant": "Yapay Zeka Asistanı",
     "help": "Yardım",
     "settings": "Ayarlar",
@@ -70,7 +70,7 @@ const translations: Record<Language, Record<string, string>> = {
     "siteTitle": "Mizahim Ben - I'm Humor",
     "siteDescription": "Just good humor, just a civilized sense of laughter. - See the latest humor from different sources. AI-included!",
     "currentJokes": "Current Humor",
-    "oldJokes": "Old Humor",
+    "oldJokes": "Announcements / News",
     "aiAssistant": "AI Assistant",
     "help": "Help",
     "settings": "Settings",
@@ -122,7 +122,7 @@ const translations: Record<Language, Record<string, string>> = {
     "helpStep3Desc": "Upload the JSON file you created to a publicly accessible location on the internet as well (you can use services like pastee.dev or GitHub Gist).",
     "helpStep4Title": "Step 4: Listing Your Source (Optional)",
     "helpStep4Desc": "If you want your humor source to be included in the public \"Humor Source\" list, you can contact us via email and send your source link. After your source is reviewed, it will be added to the official list if deemed appropriate.",
-    "ContactUs": "If you have any questions, do not hesitate to contact us at our contact email address.",
+    "helpContactUs": "If you have any questions, do not hesitate to contact us at our contact email address.",
     "Install1": "Mizahım Ben Android App!",
     "Install2": "With the Mizahım Ben app, you can follow jokes with a single click and get instant notifications when a new joke is shared!",
     "Install3": "Download",
@@ -132,7 +132,7 @@ const translations: Record<Language, Record<string, string>> = {
   "uz": {
     "siteTitle": "Mizahim Ben - Men Hazilman ",
     "currentJokes": "Joriy Hazillar",
-    "oldJokes": "Eski Hazillar",
+    "oldJokes": "E'lonlar / Yangiliklar",
     "settings": "Sozlamalar",
     "aiAssistant": "AI Yordamchi",
     "help": "Yordam",
@@ -174,7 +174,7 @@ const translations: Record<Language, Record<string, string>> = {
   "az": {
     "siteTitle": "Mizahim Ben- Mən Zarafatam",
     "currentJokes": "Cari Zarafatlar",
-    "oldJokes": "Köhnə Zarafatlar",
+    "oldJokes": "Elanlar / Xəbərlər",
     "settings": "Parametrlər",
     "aiAssistant": "Süni İntellekt Köməkçisi",
     "help": "Kömək",
@@ -216,7 +216,7 @@ const translations: Record<Language, Record<string, string>> = {
   "de": {
     "siteTitle": "Mizahim Ben - Ich bin Humor",
     "currentJokes": "Aktuelle Witze",
-    "oldJokes": "Alte Witze",
+    "oldJokes": "Ankündigungen / Nachrichten",
     "settings": "Einstellungen",
     "aiAssistant": "KI-Assistent",
     "help": "Hilfe",
@@ -258,7 +258,7 @@ const translations: Record<Language, Record<string, string>> = {
   "fr": {
     "siteTitle": "Mizahim Ben - Je suis l'Humour",
     "currentJokes": "Blagues actuelles",
-    "oldJokes": "Anciennes blagues",
+    "oldJokes": "Annonces / Nouvelles",
     "settings": "Paramètres",
     "aiAssistant": "Assistant IA",
     "help": "Aide",
@@ -300,7 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
   "zh": {
     "siteTitle": "Mizahim Ben - 我是幽默",
     "currentJokes": "当前笑话",
-    "oldJokes": "旧笑话",
+    "oldJokes": "公告 / 新闻",
     "settings": "设置",
     "aiAssistant": "人工智能助手",
     "help": "帮助",
@@ -342,7 +342,7 @@ const translations: Record<Language, Record<string, string>> = {
   "ru": {
     "siteTitle": "Mizahim Ben - Я Юмор",
     "currentJokes": "Текущие шутки",
-    "oldJokes": "Старые шутки",
+    "oldJokes": "Объявления / Новости",
     "settings": "Настройки",
     "aiAssistant": "ИИ-ассистент",
     "help": "Помощь",
@@ -384,7 +384,7 @@ const translations: Record<Language, Record<string, string>> = {
   "pt": {
     "siteTitle": "Mizahim Ben - Eu Sou o Humor",
     "currentJokes": "Piadas Atuais",
-    "oldJokes": "Piadas Antigas",
+    "oldJokes": "Anúncios / Notícias",
     "settings": "Configurações",
     "aiAssistant": "Assistente de IA",
     "help": "Ajuda",
@@ -426,7 +426,7 @@ const translations: Record<Language, Record<string, string>> = {
   "hi": {
     "siteTitle": "Mizahim Ben - मैं हास्य हूँ",
     "currentJokes": "वर्तमान चुटकुले",
-    "oldJokes": "पुराने चुटकुले",
+    "oldJokes": "घोषणाएँ / समाचार",
     "settings": "सेटिंग्स",
     "aiAssistant": "एआई सहायक",
     "help": "मदद",
@@ -466,7 +466,6 @@ const translations: Record<Language, Record<string, string>> = {
     "pp2": "mizahimben.com आपका व्यक्तिगत डेटा एकत्र नहीं करता है या कुकीज़ सेट नहीं करता है। साइट कैश आपके डिवाइस पर स्थानीय रूप से संग्रहीत होता है।\n\nहालाँकि, हम तीसरे पक्ष की सेवाओं का उपयोग करते हैं जो हमारे संचालन के लिए आवश्यक हैं:\n\nGoogle AdSense: हमारी साइट को निधि देने के लिए, Google और उसके भागीदार इस साइट और अन्य साइटों पर आपकी यात्रा के आधार पर व्यक्तिगत विज्ञापन देने के लिए कुकीज़ का उपयोग करते हैं। आप किसी भी समय Google की विज्ञापन सेटिंग पर जाकर ऑप्ट आउट कर सकते हैं।\n\nGoogle Gemini API: हमारी AI सुविधाएँ Google की Gemini API द्वारा संचालित हैं। इन सुविधाओं का उपयोग Google की गोपनीयता नीति के अधीन है।\n\nहमारी परियोजना ओपन सोर्स है। प्रश्नों के लिए, फुटर में हमारे ईमेल से हमसे संपर्क करें।"
   },
  };
-
 export const useTranslation = () => {
     const context = useContext(SettingsContext);
     if (!context) {
