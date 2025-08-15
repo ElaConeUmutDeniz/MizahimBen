@@ -1,4 +1,4 @@
-import type { Context } from "@netlify/edge-functions";
+/* import type { Context } from "@netlify/edge-functions";
 
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { AIMessage } from "../types";
@@ -33,6 +33,37 @@ export const getAIAssistantResponse = async (history: AIMessage[], newMessage: s
         return response.text;
     } catch (error) {
         console.error("Gemini API error:", error);
+        throw error;
+    }
+};
+*/ 
+// src/services/geminiService.js
+import { AIMessage } from "../types";
+
+// This function now calls YOUR API endpoint (the Netlify Function), not Google's.
+export const getAIAssistantResponse = async (history: AIMessage[], newMessage: string): Promise<string> => {
+    try {
+        // The path to your function is automatically available at /.netlify/functions/
+        const response = await fetch('/netlify/functions/Ooo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // Send the necessary data in the request body
+            body: JSON.stringify({ history, newMessage }),
+        });
+
+        if (!response.ok) {
+            // Handle HTTP errors from your function (like 500)
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Failed to fetch from the AI service.');
+        }
+
+        const data = await response.json();
+        return data.text; // The response from your function will have a 'text' property
+
+    } catch (error) {
+        console.error("Error calling Netlify Function:", error);
         throw error;
     }
 };
