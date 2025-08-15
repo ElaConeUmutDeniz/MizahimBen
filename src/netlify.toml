@@ -1,10 +1,13 @@
 # netlify.toml
 
-# This tells Netlify to make specific environment variables 
-# available to functions during runtime.
 [functions]
-  [functions.environment]
-    # The variable on the left (API_KEY) is what your function code will use.
-    # The value on the right is a reference to the variable you set in the Netlify UI.
-    # This is NOT a security risk; it's a pointer. The actual secret value is never in your repository.
-    API_KEY = "$API_KEY"
+  # This tells Netlify where to find your serverless functions.
+  # It MUST match the directory in your repository.
+  directory = "src/netlify/functions/"
+
+[build]
+  # This tells Netlify what command to run to build your site.
+  # This is likely already set in your Netlify UI, but it's good practice to have it here.
+  command = "npm run build"
+  # This tells Netlify where the final static site files are after the build.
+  publish = "dist"
