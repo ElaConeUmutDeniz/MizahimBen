@@ -47,8 +47,8 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
                         </div>
                         <nav className="flex items-center space-x-2 sm:space-x-4">
                             <NavButton label="Güncel" icon={<HomeIcon />} isActive={currentView === 'home'} onClick={() => setView('home')} />
-                            <NavButton label="Eski" icon={<ArchiveIcon />} isActive={currentView === 'old'} onClick={() => setView('old')} />
-                            <NavButton label="Yapay Zeka(bakım modunda)" icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
+                            <NavButton label="Bildiriler" icon={<ArchiveIcon />} isActive={currentView === 'old'} onClick={() => setView('old')} />
+                            <NavButton label="Yapay Zeka" icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
                             <NavButton label="Yardım" icon={<BookOpenIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
                             <NavButton label="İndir" icon={<AndroidIcon />} isActive={currentView === 'install'} onClick={() => setView('install')} />
                             <button
