@@ -2,7 +2,7 @@ import { useContext, useCallback } from 'react';
 import { SettingsContext } from '../hooks/useSettings';
 import { Language, SupportedLanguages } from '../types';
 
-Record<Language, Record<string, string>> = {
+const translations : Record<Language, Record<string, string>> = {
     "tr": {
     "siteTitle": "Mizahım Ben",
     "siteDescription": "Sadece güzel mizah, sadece medeni güldürü anlayışı. - En son mizahları farklı kaynaklardan gör. Yapay zeka destekli!",
