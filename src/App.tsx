@@ -57,7 +57,11 @@ const MainContent: React.FC = () => {
                 return (
                     <div>
                         <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}</h1>
-                        <div class="ml-embedded" data-form="NK0MZI"></div>
+                <button className={`ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+            isActive
+                ? 'bg-[color:var(--accent-color)] text-white'
+                : 'text-[var(--secondary-text)] hover:bg-[var(--secondary-bg)] hover:text-[var(--primary-text)]'
+        }`} onclick="ml('show', 'NK0MZI', true)">kuku</button>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
                         </div>
