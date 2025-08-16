@@ -64,7 +64,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "Mizahım Ben uygulaması ile tek tıkla mizahları takip edebilir ve mizah paylaşıldığında anında bildirim alabilirsiniz!",
     "Install3": "İndir",
     "pp1": "Gizlilik Politikası",
-    "pp2": "mizahimben.com kişisel verilerinizi toplamaz veya çerez ayarlamaz. Site önbelleği yerel olarak cihazınızda saklanır.\n\nAncak, işleyişimiz için gerekli olan üçüncü taraf hizmetlerini kullanıyoruz:\n\nGoogle AdSense: Sitemizi finanse etmek için, Google ve iş ortakları bu siteye ve diğer sitelere yaptığınız ziyarete dayalı olarak kişiselleştirilmiş reklamlar sunmak için çerezler kullanır. İstediğiniz zaman Google'ın Reklam Ayarları'nı ziyaret ederek bu seçeneği devre dışı bırakabilirsiniz.\n\nGoogle Gemini API: Yapay zeka özelliklerimiz Google'ın Gemini API'si tarafından desteklenmektedir. Bu özelliklerin kullanımı Google Gizlilik Politikası'na tabidir.\n\nProjemiz açık kaynaklıdır. Sorularınız için dipnot'taki e-postamız aracılığıyla bizimle iletişime geçin."
+    "pp2": "mizahimben.com kişisel verilerinizi toplamaz veya çerez ayarlamaz. Site önbelleği yerel olarak cihazınızda saklanır.\n\nAncak, işleyişimiz için gerekli olan üçüncü taraf hizmetlerini kullanıyoruz:\n\nGoogle AdSense: Sitemizi finanse etmek için, Google ve iş ortakları bu siteye ve diğer sitelere yaptığınız ziyarete dayalı olarak kişiselleştirilmiş reklamlar sunmak için çerezler kullanır. İstediğiniz zaman Google'ın Reklam Ayarları'nı ziyaret ederek bu seçeneği devre dışı bırakabilirsiniz.\n\nGoogle Gemini API: Yapay zeka özelliklerimiz Google'ın Gemini API'si tarafından desteklenmektedir. Bu özelliklerin kullanımı Google Gizlilik Politikası'na tabidir.\n\nProjemiz açık kaynaklıdır. Sorularınız için dipnot'taki e-postamız aracılığıyla bizimle iletişime geçin.",
+    "guncel": "Güncel",
+    "bildiriler": "Bildiriler",
+    "yapayzeka": "Yapay Zeka",
+    "yardim": "Yardım",
+    "indir": "İndir"
   },
   "en": {
     "siteTitle": "Mizahim Ben - I'm Humor",
@@ -127,7 +132,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "With the Mizahım Ben app, you can follow jokes with a single click and get instant notifications when a new joke is shared!",
     "Install3": "Download",
     "pp1": "Privacy Policy",
-    "pp2": "mizahimben.com does not collect your personal data or set cookies. Site cache is stored locally on your device.\n\nHowever, we use third-party services which are essential for our operation:\n\nGoogle AdSense: To fund our site, Google and its partners use cookies to serve personalized ads based on your visit to this site and others. You can opt out at any time by visiting Google's Ads Settings.\n\nGoogle Gemini API: Our AI features are powered by Google's Gemini API. Use of these features is subject to the Google Privacy Policy.\n\nOur project is open source. For questions, contact us with our email at footer."
+    "pp2": "mizahimben.com does not collect your personal data or set cookies. Site cache is stored locally on your device.\n\nHowever, we use third-party services which are essential for our operation:\n\nGoogle AdSense: To fund our site, Google and its partners use cookies to serve personalized ads based on your visit to this site and others. You can opt out at any time by visiting Google's Ads Settings.\n\nGoogle Gemini API: Our AI features are powered by Google's Gemini API. Use of these features is subject to the Google Privacy Policy.\n\nOur project is open source. For questions, contact us with our email at footer.",
+    "guncel": "Current",
+    "bildiriler": "News",
+    "yapayzeka": "AI",
+    "yardim": "Help",
+    "indir": "Download"
   },
   "uz": {
     "siteTitle": "Mizahim Ben - Men Hazilman ",
@@ -169,7 +179,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "Mizahım Ben ilovasi bilan bir marta bosish orqali hazillarni kuzatib boring va yangi hazil ulashilganda darhol bildirishnomalarni oling!",
     "Install3": "Yuklab Olish",
     "pp1": "Maxfiylik Siyosati",
-    "pp2": "mizahimben.com shaxsiy ma'lumotlaringizni to'plamaydi yoki cookie-fayllarni o'rnatmaydi. Sayt keshi qurilmangizda mahalliy saqlanadi.\n\nBiroq, biz faoliyatimiz uchun zarur bo'lgan uchinchi tomon xizmatlaridan foydalanamiz:\n\nGoogle AdSense: Saytimizni moliyalashtirish uchun Google va uning hamkorlari ushbu saytga va boshqa saytlarga tashrifingiz asosida shaxsiylashtirilgan reklamalarni taqdim etish uchun cookie-fayllardan foydalanadi. Siz istalgan vaqtda Google Reklama Sozlamalari'ga tashrif buyurib, bundan voz kechishingiz mumkin.\n\nGoogle Gemini API: Bizning AI xususiyatlarimiz Google'ning Gemini API'si tomonidan quvvatlanadi. Ushbu xususiyatlardan foydalanish Google Maxfiylik Siyosati'ga bo'ysunadi.\n\nLoyihamiz ochiq manbalidir. Savollar uchun pastki qismdagi elektron pochtamiz orqali biz bilan bog'laning."
+    "pp2": "mizahimben.com shaxsiy ma'lumotlaringizni to'plamaydi yoki cookie-fayllarni o'rnatmaydi. Sayt keshi qurilmangizda mahalliy saqlanadi.\n\nBiroq, biz faoliyatimiz uchun zarur bo'lgan uchinchi tomon xizmatlaridan foydalanamiz:\n\nGoogle AdSense: Saytimizni moliyalashtirish uchun Google va uning hamkorlari ushbu saytga va boshqa saytlarga tashrifingiz asosida shaxsiylashtirilgan reklamalarni taqdim etish uchun cookie-fayllardan foydalanadi. Siz istalgan vaqtda Google Reklama Sozlamalari'ga tashrif buyurib, bundan voz kechishingiz mumkin.\n\nGoogle Gemini API: Bizning AI xususiyatlarimiz Google'ning Gemini API'si tomonidan quvvatlanadi. Ushbu xususiyatlardan foydalanish Google Maxfiylik Siyosati'ga bo'ysunadi.\n\nLoyihamiz ochiq manbalidir. Savollar uchun pastki qismdagi elektron pochtamiz orqali biz bilan bog'laning.",
+    "guncel": "Joriy",
+    "bildiriler": "E'lonlar",
+    "yapayzeka": "AI",
+    "yardim": "Yordam",
+    "indir": "Yuklab Olish"
   },
   "az": {
     "siteTitle": "Mizahim Ben- Mən Zarafatam",
@@ -205,13 +220,18 @@ const translations: Record<Language, Record<string, string>> = {
     "helpStep3Title": "Addım 3: Mənbəyinizi Əlavə Edin",
     "helpStep3Desc": "Yaratdığınız JSON faylını da internetdə hamının istifadə edə biləcəyi bir yerə yükləyin (pastee.dev və ya GitHub Gist kimi xidmətlərdən istifadə edə bilərsiniz).",
     "helpStep4Title": "Addım 4: Mənbəyinizi Siyahıya Aldırmaq (İstəyə Bağlı)",
-    "helpStep4Desc": "Əgər zarafat mənbəyinizin hamının görə biləcəyi \"Zarafat Mənbəyi\" siyahısında yer almasını istəyirsinizsə, bizə e-poçt vasitəsilə müraciət edib mənbə linkinizi göndərə bilərsiniz. Mənbəyiniz yoxlanıldıqdan sonra uyğun görüldüyü təqdirdə rəsmi siyahıya əlavə ediləcəkdir.",
+    "helpStep4Desc": "Əgər zarafat mənbəyinizin hamının görə biləcəyi \"Zarafat Mənbəyi\" siyahısında yer almasını istəyirsinizsə, bizə e-poçt vasitəsilə müraciət edib mənbə linkinizi göndərə bilərsiniz. Mənbəyiniz yoxlanıldıqdan sonra uyğun görüldüyü təqdirdə rəsm siyahıya əlavə ediləcəkdir.",
     "helpContactUs": "Hər hansı bir sualınız olarsa, əlaqə e-poçt ünvanımızdan bizimlə əlaqə saxlamaqdan çəkinməyin.",
     "Install1": "Mizahım Ben Android Tətbiqi!",
     "Install2": "Mizahım Ben tətbiqi ilə bir kliklə zarafatları izləyə və zarafat paylaşılanda anında bildirişlər ala bilərsiniz!",
     "Install3": "Yüklə",
     "pp1": "Məxfilik Siyasəti",
-    "pp2": "mizahimben.com şəxsi məlumatlarınızı toplamır və ya kuki təyin etmir. Sayt keşi cihazınızda yerli olaraq saxlanılır.\n\nAncaq fəaliyyətimiz üçün vacib olan üçüncü tərəf xidmətlərindən istifadə edirik:\n\nGoogle AdSense: Saytımızı maliyyələşdirmək üçün Google və tərəfdaşları bu sayta və digər saytlara etdiyiniz ziyarətə əsaslanaraq fərdiləşdirilmiş reklamlar göstərmək üçün kukilərdən istifadə edir. İstədiyiniz zaman Google-un Reklam Ayarlarını ziyarət edərək imtina edə bilərsiniz.\n\nGoogle Gemini API: Süni intellekt xüsusiyyətlərimiz Google-un Gemini API-si ilə təchiz edilmişdir. Bu xüsusiyyətlərdən istifadə Google Məxfilik Siyasətinə tabedir.\n\nLayihəmiz açıq mənbəlidir. Suallarınız üçün altbilgidəki e-poçtumuz vasitəsilə bizimlə əlaqə saxlayın."
+    "pp2": "mizahimben.com şəxsi məlumatlarınızı toplamır və ya kuki təyin etmir. Sayt keşi cihazınızda yerli olaraq saxlanılır.\n\nAncaq fəaliyyətimiz üçün vacib olan üçüncü tərəf xidmətlərindən istifadə edirik:\n\nGoogle AdSense: Saytımızı maliyyələşdirmək üçün Google və tərəfdaşları bu sayta və digər saytlara etdiyiniz ziyarətə əsaslanaraq fərdiləşdirilmiş reklamlar göstərmək üçün kukilərdən istifadə edir. İstədiyiniz zaman Google-un Reklam Ayarlarını ziyarət edərək imtina edə bilərsiniz.\n\nGoogle Gemini API: Süni intellekt xüsusiyyətlərimiz Google-un Gemini API-si ilə təchiz edilmişdir. Bu xüsusiyyətlərdən istifadə Google Məxfilik Siyasətinə tabedir.\n\nLayihəmiz açıq mənbəlidir. Suallarınız üçün altbilgidəki e-poçtumuz vasitəsilə bizimlə əlaqə saxlayın.",
+    "guncel": "Cari",
+    "bildiriler": "Elanlar",
+    "yapayzeka": "Süni İntellekt",
+    "yardim": "Kömək",
+    "indir": "Yüklə"
   },
   "de": {
     "siteTitle": "Mizahim Ben - Ich bin Humor",
@@ -253,7 +273,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "Mit der Mizahım Ben-App können Sie Witze mit einem einzigen Klick verfolgen und sofortige Benachrichtigungen erhalten, wenn ein neuer Witz geteilt wird!",
     "Install3": "Herunterladen",
     "pp1": "Datenschutzrichtlinie",
-    "pp2": "mizahimben.com sammelt keine Ihrer persönlichen Daten und setzt keine Cookies. Der Site-Cache wird lokal auf Ihrem Gerät gespeichert.\n\nWir nutzen jedoch Dienste von Drittanbietern, die für unseren Betrieb unerlässlich sind:\n\nGoogle AdSense: Um unsere Website zu finanzieren, verwenden Google und seine Partner Cookies, um personalisierte Anzeigen basierend auf Ihrem Besuch auf dieser und anderen Websites zu schalten. Sie können dies jederzeit in den Google-Anzeigeneinstellungen deaktivieren.\n\nGoogle Gemini API: Unsere KI-Funktionen werden von der Gemini-API von Google unterstützt. Die Nutzung dieser Funktionen unterliegt der Datenschutzerklärung von Google.\n\nUnser Projekt ist Open Source. Bei Fragen kontaktieren Sie uns über unsere E-Mail-Adresse in der Fußzeile."
+    "pp2": "mizahimben.com sammelt keine Ihrer persönlichen Daten und setzt keine Cookies. Der Site-Cache wird lokal auf Ihrem Gerät gespeichert.\n\nWir nutzen jedoch Dienste von Drittanbietern, die für unseren Betrieb unerlässlich sind:\n\nGoogle AdSense: Um unsere Website zu finanzieren, verwenden Google und seine Partner Cookies, um personalisierte Anzeigen basierend auf Ihrem Besuch auf dieser und anderen Websites zu schalten. Sie können dies jederzeit in den Google-Anzeigeneinstellungen deaktivieren.\n\nGoogle Gemini API: Unsere KI-Funktionen werden von der Gemini-API von Google unterstützt. Die Nutzung dieser Funktionen unterliegt der Datenschutzerklärung von Google.\n\nUnser Projekt ist Open Source. Bei Fragen kontaktieren Sie uns über unsere E-Mail-Adresse in der Fußzeile.",
+    "guncel": "Aktuell",
+    "bildiriler": "Nachrichten",
+    "yapayzeka": "KI",
+    "yardim": "Hilfe",
+    "indir": "Herunterladen"
   },
   "fr": {
     "siteTitle": "Mizahim Ben - Je suis l'Humour",
@@ -295,7 +320,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "Avec l'application Mizahım Ben, vous pouvez suivre les blagues en un seul clic et recevoir des notifications instantanées lorsqu'une nouvelle blague est partagée !",
     "Install3": "Télécharger",
     "pp1": "Politique de Confidentialité",
-    "pp2": "mizahimben.com ne collecte pas vos données personnelles et n'installe pas de cookies. Le cache du site est stocké localement sur votre appareil.\n\nCependant, nous utilisons des services tiers qui sont essentiels à notre fonctionnement :\n\nGoogle AdSense : Pour financer notre site, Google et ses partenaires utilisent des cookies pour diffuser des annonces personnalisées en fonction de votre visite sur ce site et d'autres. Vous pouvez désactiver cette option à tout moment en visitant les Paramètres des annonces Google.\n\nGoogle Gemini API : Nos fonctionnalités d'IA sont alimentées par l'API Gemini de Google. L'utilisation de ces fonctionnalités est soumise à la Politique de confidentialité de Google.\n\nNotre projet est open source. Pour toute question, contactez-nous via notre e-mail indiqué dans le pied de page."
+    "pp2": "mizahimben.com ne collecte pas vos données personnelles et n'installe pas de cookies. Le cache du site est stocké localement sur votre appareil.\n\nCependant, nous utilisons des services tiers qui sont essentiels à notre fonctionnement :\n\nGoogle AdSense : Pour financer notre site, Google et ses partenaires utilisent des cookies pour diffuser des annonces personnalisées en fonction de votre visite sur ce site et d'autres. Vous pouvez désactiver cette option à tout moment en visitant les Paramètres des annonces Google.\n\nGoogle Gemini API : Nos fonctionnalités d'IA sont alimentées par l'API Gemini de Google. L'utilisation de ces fonctionnalités est soumise à la Politique de confidentialité de Google.\n\nNotre projet est open source. Pour toute question, contactez-nous via notre e-mail indiqué dans le pied de page.",
+    "guncel": "Actuel",
+    "bildiriler": "Nouvelles",
+    "yapayzeka": "IA",
+    "yardim": "Aide",
+    "indir": "Télécharger"
   },
   "zh": {
     "siteTitle": "Mizahim Ben - 我是幽默",
@@ -337,7 +367,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "使用Mizahım Ben应用程序，您只需单击一下即可关注笑话，并在分享新笑话时立即收到通知！",
     "Install3": "下载",
     "pp1": "隐私政策",
-    "pp2": "mizahimben.com 不会收集您的个人数据或设置 Cookie。网站缓存存储在您的设备本地。\n\n但是，我们使用对我们运营至关重要的第三方服务：\n\nGoogle AdSense：为了资助我们的网站，Google 及其合作伙伴使用 Cookie 根据您对本网站和其他网站的访问来投放个性化广告。您可以随时访问 Google 的广告设置来选择退出。\n\nGoogle Gemini API：我们的 AI 功能由 Google 的 Gemini API 提供支持。使用这些功能受 Google 隐私政策的约束。\n\n我们的项目是开源的。如有问题，请通过页脚中的电子邮件与我们联系。"
+    "pp2": "mizahimben.com 不会收集您的个人数据或设置 Cookie。网站缓存存储在您的设备本地。\n\n但是，我们使用对我们运营至关重要的第三方服务：\n\nGoogle AdSense：为了资助我们的网站，Google 及其合作伙伴使用 Cookie 根据您对本网站和其他网站的访问来投放个性化广告。您可以随时访问 Google 的广告设置来选择退出。\n\nGoogle Gemini API：我们的 AI 功能由 Google 的 Gemini API 提供支持。使用这些功能受 Google 隐私政策的约束。\n\n我们的项目是开源的。如有问题，请通过页脚中的电子邮件与我们联系。",
+    "guncel": "当前",
+    "bildiriler": "新闻",
+    "yapayzeka": "AI",
+    "yardim": "帮助",
+    "indir": "下载"
   },
   "ru": {
     "siteTitle": "Mizahim Ben - Я Юмор",
@@ -379,7 +414,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "С приложением Mizahım Ben вы можете следить за шутками в один клик и получать мгновенные уведомления, когда публикуется новая шутка!",
     "Install3": "Скачать",
     "pp1": "Политика Конфиденциальности",
-    "pp2": "mizahimben.com не собирает ваши личные данные и не устанавливает файлы cookie. Кэш сайта хранится локально на вашем устройстве.\n\nОднако мы используем сторонние сервисы, необходимые для нашей работы:\n\nGoogle AdSense: Для финансирования нашего сайта Google и его партнеры используют файлы cookie для показа персонализированной рекламы на основе вашего посещения этого и других сайтов. Вы можете отказаться от этого в любое время, посетив Настройки рекламы Google.\n\nGoogle Gemini API: Наши функции искусственного интеллекта работают на базе Gemini API от Google. Использование этих функций регулируется Политикой конфиденциальности Google.\n\nНаш проект является открытым исходным кодом. По вопросам обращайтесь к нам по электронной почте, указанной в подвале сайта."
+    "pp2": "mizahimben.com не собирает ваши личные данные и не устанавливает файлы cookie. Кэш сайта хранится локально на вашем устройстве.\n\nОднако мы используем сторонние сервисы, необходимые для нашей работы:\n\nGoogle AdSense: Для финансирования нашего сайта Google и его партнеры используют файлы cookie для показа персонализированной рекламы на основе вашего посещения этого и других сайтов. Вы можете отказаться от этого в любое время, посетив Настройки рекламы Google.\n\nGoogle Gemini API: Наши функции искусственного интеллекта работают на базе Gemini API от Google. Использование этих функций регулируется Политикой конфиденциальности Google.\n\nНаш проект является открытым исходным кодом. По вопросам обращайтесь к нам по электронной почте, указанной в подвале сайта.",
+    "guncel": "Текущие",
+    "bildiriler": "Новости",
+    "yapayzeka": "ИИ",
+    "yardim": "Помощь",
+    "indir": "Скачать"
   },
   "pt": {
     "siteTitle": "Mizahim Ben - Eu Sou o Humor",
@@ -421,7 +461,12 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "Com o aplicativo Mizahım Ben, você pode seguir as piadas com um único clique e receber notificações instantâneas quando uma nova piada for compartilhada!",
     "Install3": "Baixar",
     "pp1": "Política de Privacidade",
-    "pp2": "mizahimben.com não coleta seus dados pessoais nem define cookies. O cache do site é armazenado localmente no seu dispositivo.\n\nNo entanto, usamos serviços de terceiros que são essenciais para nossa operação:\n\nGoogle AdSense: Para financiar nosso site, o Google e seus parceiros usam cookies para veicular anúncios personalizados com base na sua visita a este e a outros sites. Você pode optar por não participar a qualquer momento, visitando as Configurações de anúncios do Google.\n\nGoogle Gemini API: Nossos recursos de IA são desenvolvidos com a API Gemini do Google. O uso desses recursos está sujeito à Política de Privacidade do Google.\n\nNosso projeto é de código aberto. Em caso de dúvidas, entre em contato conosco pelo e-mail no rodapé."
+    "pp2": "mizahimben.com não coleta seus dados pessoais nem define cookies. O cache do site é armazenado localmente no seu dispositivo.\n\nNo entanto, usamos serviços de terceiros que são essenciais para nossa operação:\n\nGoogle AdSense: Para financiar nosso site, o Google e seus parceiros usam cookies para veicular anúncios personalizados com base na sua visita a este e a outros sites. Você pode optar por não participar a qualquer momento, visitando as Configurações de anúncios do Google.\n\nGoogle Gemini API: Nossos recursos de IA são desenvolvidos com a API Gemini do Google. O uso desses recursos está sujeito à Política de Privacidade do Google.\n\nNosso projeto é de código aberto. Em caso de dúvidas, entre em contato conosco pelo e-mail no rodapé.",
+    "guncel": "Atual",
+    "bildiriler": "Notícias",
+    "yapayzeka": "IA",
+    "yardim": "Ajuda",
+    "indir": "Baixar"
   },
   "hi": {
     "siteTitle": "Mizahim Ben - मैं हास्य हूँ",
@@ -463,9 +508,14 @@ const translations: Record<Language, Record<string, string>> = {
     "Install2": "मिज़ाहिम बेन ऐप के साथ, आप एक क्लिक में चुटकुलों को फॉलो कर सकते हैं और जब कोई नया चुटकुला साझा किया जाता है तो तुरंत सूचनाएं प्राप्त कर सकते हैं!",
     "Install3": "डाउनलोड करें",
     "pp1": "गोपनीयता नीति",
-    "pp2": "mizahimben.com आपका व्यक्तिगत डेटा एकत्र नहीं करता है या कुकीज़ सेट नहीं करता है। साइट कैश आपके डिवाइस पर स्थानीय रूप से संग्रहीत होता है।\n\nहालाँकि, हम तीसरे पक्ष की सेवाओं का उपयोग करते हैं जो हमारे संचालन के लिए आवश्यक हैं:\n\nGoogle AdSense: हमारी साइट को निधि देने के लिए, Google और उसके भागीदार इस साइट और अन्य साइटों पर आपकी यात्रा के आधार पर व्यक्तिगत विज्ञापन देने के लिए कुकीज़ का उपयोग करते हैं। आप किसी भी समय Google की विज्ञापन सेटिंग पर जाकर ऑप्ट आउट कर सकते हैं।\n\nGoogle Gemini API: हमारी AI सुविधाएँ Google की Gemini API द्वारा संचालित हैं। इन सुविधाओं का उपयोग Google की गोपनीयता नीति के अधीन है।\n\nहमारी परियोजना ओपन सोर्स है। प्रश्नों के लिए, फुटर में हमारे ईमेल से हमसे संपर्क करें।"
+    "pp2": "mizahimben.com आपका व्यक्तिगत डेटा एकत्र नहीं करता है या कुकीज़ सेट नहीं करता है। साइट कैश आपके डिवाइस पर स्थानीय रूप से संग्रहीत होता है।\n\nहालाँकि, हम तीसरे पक्ष की सेवाओं का उपयोग करते हैं जो हमारे संचालन के लिए आवश्यक हैं:\n\nGoogle AdSense: हमारी साइट को निधि देने के लिए, Google और उसके भागीदार इस साइट और अन्य साइटों पर आपकी यात्रा के आधार पर व्यक्तिगत विज्ञापन देने के लिए कुकीज़ का उपयोग करते हैं। आप किसी भी समय Google की विज्ञापन सेटिंग पर जाकर ऑप्ट आउट कर सकते हैं।\n\nGoogle Gemini API: हमारी AI सुविधाएँ Google की Gemini API द्वारा संचालित हैं। इन सुविधाओं का उपयोग Google की गोपनीयता नीति के अधीन है।\n\nहमारी परियोजना ओपन सोर्स है। प्रश्नों के लिए, फुटर में हमारे ईमेल से हमसे संपर्क करें।",
+    "guncel": "वर्तमान",
+    "bildiriler": "समाचार",
+    "yapayzeka": "एआई",
+    "yardim": "मदद",
+    "indir": "डाउनलोड करें"
   },
- };
+};
 export const useTranslation = () => {
     const context = useContext(SettingsContext);
     if (!context) {
