@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { getJokeContent } from '../services/jokeService';
 import { useSettings } from '../hooks/useSettings';
@@ -15,6 +14,10 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
     const [error, setError] = useState<string | null>(null);
     const { settings } = useSettings();
     const { t } = useTranslation();
+
+    // --- NEW: Create a slug from the joke's filename ---
+    // This takes a URL like "/jokes/my-funny-joke.md" and turns it into "my-funny-joke"
+    const slug = jokeUrl.split('/').pop()?.replace(/\.md$/, '') || '';
 
     useEffect(() => {
         const fetchContent = async () => {
@@ -53,7 +56,8 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
     }
 
     return (
-        <div className="bg-[var(--secondary-bg)] p-6 rounded-lg shadow-md border border-[var(--border-color)]">
+        // --- MODIFIED: Added the id attribute using the generated slug ---
+        <div id={slug} className="bg-[var(--secondary-bg)] p-6 rounded-lg shadow-md border border-[var(--border-color)]">
             <div className="prose dark:prose-invert max-w-none text-[var(--secondary-text)]" dangerouslySetInnerHTML={{ __html: content }} />
             
             <div className="mt-4 pt-4 border-t border-[var(--border-color)]">
