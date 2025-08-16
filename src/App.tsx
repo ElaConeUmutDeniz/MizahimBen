@@ -57,6 +57,7 @@ const MainContent: React.FC = () => {
                 return (
                     <div>
                         <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}</h1>
+                        
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
                         </div>
