@@ -48,10 +48,10 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
                         </div>
                         <nav className="flex items-center space-x-2 sm:space-x-4">
                             <NavButton label={t('guncel')} icon={<HomeIcon />} isActive={currentView === 'home'} onClick={() => setView('home')} />
-                            <NavButton label={t('bildiriler') icon={<ArchiveIcon />} isActive={currentView === 'old'} onClick={() => setView('old')} />
-                            <NavButton label={t('yapayzeka') icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
-                            <NavButton label={t('yardim') icon={<BookOpenIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
-                            <NavButton label={t('indir') icon={<AndroidIcon />} isActive={currentView === 'install'} onClick={() => setView('install')} />
+                            <NavButton label={t('bildiriler')} icon={<ArchiveIcon />} isActive={currentView === 'old'} onClick={() => setView('old')} />
+                            <NavButton label={t('yapayzeka')} icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
+                            <NavButton label={t('yardim')} icon={<BookOpenIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
+                            <NavButton label={t('indir')} icon={<AndroidIcon />} isActive={currentView === 'install'} onClick={() => setView('install')} />
                             <button
                                 onClick={() => setIsSettingsOpen(true)}
                                 className="p-2 rounded-full text-[var(--secondary-text)] hover:bg-[var(--secondary-bg)] hover:text-[color:var(--accent-color)] transition-colors"
