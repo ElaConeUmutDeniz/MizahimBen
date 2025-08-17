@@ -12,7 +12,7 @@ import { getJokeSource } from './services/jokeService';
 import { JokeSource, View } from './types';
 import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
-import MailerLite from 'react-mailerlite-form'
+import MailTR from './components/MailTR'
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
