@@ -56,7 +56,7 @@ const MainContent: React.FC = () => {
             case 'home':
                 return (
                     <div>
-                        <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}   <button href="javascript:void(0)"
+                        <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}   <button 
         className='ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-[color:var(--accent-color)] text-white'
         onClick={() => (window as any).ml('show', 'NK0MZI', true)}
     >
