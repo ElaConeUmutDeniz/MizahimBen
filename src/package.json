@@ -11,7 +11,8 @@
   "dependencies": {
     "@google/genai": "^1.7.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+     "@Galaco/react-mailerlite-form": "0.1.0"
   },
   "devDependencies": {
     "@netlify/edge-functions": "^2.17.0",
