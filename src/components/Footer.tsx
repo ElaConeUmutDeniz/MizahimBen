@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
                 <p className="mb-2 font-semibold">{t('geminiDisclaimer')}</p>
                 <a href="https://www.instagram.com/MizahimBen">Instagram: @mizahimben</a>
 
-                <a className="mb-2 text-blue-500" onClick={setView === 'pp'}>Privacy Policy</a>
+                <a className="mb-2 text-blue-500" onClick={currentView === 'pp'}>Privacy Policy</a>
                 <p>
                     <SafeMailto email="contact@mizahimben.com">
                         {t('contact')}
