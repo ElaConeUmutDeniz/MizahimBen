@@ -13,7 +13,7 @@ import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
 import MailTr from './components/MailTr'
 import MailEn from './components/MailEn'
-
+import pp from './components/privacyPolicy'
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
@@ -157,6 +157,8 @@ const MainContent: React.FC = () => {
                 return <HelpPage />;
             case 'install':
                 return <Install />
+            case 'pp':
+                return <pp />
             default:
                 return <div>{t('pageNotFound')}</div>;
         }
