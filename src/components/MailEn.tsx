@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'; // Import useEffect
 
-const MailTr = () => {
+const MailEn = () => {
   // --- MODIFICATION START ---
   // This hook will load the Google reCAPTCHA script
   useEffect(() => {
