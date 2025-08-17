@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // This component encapsulates a MailerLite subscription form with Turkish content.
 // It uses the useEffect hook to safely load external scripts required for reCAPTCHA and form submission.
 // It also manages the form's success state internally.
-const mailFormu: React.FC = () => {
+const MailFormu: React.FC = () => {
   // State to toggle between the form and the success message
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
@@ -233,4 +233,4 @@ const mailFormu: React.FC = () => {
   );
 };
 
-export default mailFormu;
+export default MailFormu;
