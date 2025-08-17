@@ -59,17 +59,13 @@ const MainContent: React.FC = () => {
                         <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}  
 <button
     type="button"
-    // Add the class back in, even with a manual onClick
+    // The script finds this class name
     className='ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-[color:var(--accent-color)] text-white'
-    onClick={() => {
-        console.log("Attempting to show MailerLite form NK0MZI...");
-        if (window.ml) {
-            (window as any).ml('show', 'NK0MZI', true);
-        } else {
-            console.error("MailerLite 'ml' function not found.");
-        }
-    }}
+    // The script uses this data attribute to know WHICH form to show
+    data-ml-pk="NK0MZI" 
 >
+    {t('newsletter')}
+</button>
     {t('newsletter')}
 </button>
 </h1>
