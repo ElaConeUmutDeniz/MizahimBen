@@ -12,7 +12,7 @@ import { getJokeSource } from './services/jokeService';
 import { JokeSource, View } from './types';
 import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
-
+import mailFormu from './mailFormu'
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
@@ -66,6 +66,7 @@ const MainContent: React.FC = () => {
 >
     {t('newsletter')}
 </button>
+<mailFormu />
 </h1>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
