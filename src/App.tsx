@@ -1,4 +1,4 @@
-
+// src/app.tsx
 import React, { useState, useEffect } from 'react';
 import { SettingsProvider, useSettings } from './hooks/useSettings';
 import Header from './components/Header';
@@ -13,6 +13,7 @@ import { JokeSource, View } from './types';
 import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
 import MailTr from './components/MailTr'
+
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
@@ -21,6 +22,19 @@ const MainContent: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    // --- MODIFICATION START ---
+    const [isMailTrVisible, setIsMailTrVisible] = useState(false);
+    // State to track if the button has EVER been clicked, persists in localStorage
+    const [hasButtonClicked, setHasButtonClicked] = useState(false);
+
+    // Check localStorage on initial mount to see if the button was clicked before
+    useEffect(() => {
+        const clicked = localStorage.getItem('newsletterButtonClicked') === 'true';
+        setHasButtonClicked(clicked);
+    }, []);
+    // --- MODIFICATION END ---
+
+
     useEffect(() => {
         const fetchJokes = async () => {
             setLoading(true);
@@ -28,7 +42,8 @@ const MainContent: React.FC = () => {
             try {
                 const source = await getJokeSource(settings.jokeSourceUrl || DEFAULT_JOKE_SOURCE_URL);
                 setJokeSource(source);
-            } catch (err) {
+            } catch (err)
+ {
                 console.error("Failed to fetch joke source:", err);
                 setError(t('errorFetchJokes'));
             } finally {
@@ -37,6 +52,20 @@ const MainContent: React.FC = () => {
         };
         fetchJokes();
     }, [settings.jokeSourceUrl, t]);
+    
+    // --- MODIFICATION START ---
+    // Handle the newsletter button click
+    const handleNewsletterClick = () => {
+        // Toggle the form visibility
+        setIsMailTrVisible(prev => !prev);
+
+        // If this is the first time clicking, update state and localStorage
+        if (!hasButtonClicked) {
+            localStorage.setItem('newsletterButtonClicked', 'true');
+            setHasButtonClicked(true);
+        }
+    };
+    // --- MODIFICATION END ---
 
     const renderView = () => {
         if (loading) {
@@ -54,20 +83,37 @@ const MainContent: React.FC = () => {
 
         switch (view) {
             case 'home':
+                // --- MODIFICATION START ---
+                // Dynamically set the button's background color class
+                const buttonBgClass = hasButtonClicked
+                    ? 'bg-[color:var(--accent-color)]'
+                    : 'bg-red-600 hover:bg-red-700';
+
                 return (
                     <div>
-                        <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}  
-<button
-    type="button"
-    // The script finds this class name
-    className='ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-[color:var(--accent-color)] text-white'
-    // The script uses this data attribute to know WHICH form to show
-    data-ml-pk="NK0MZI" 
->
-    {t('newsletter')}
-</button>
-  <MailTr />
-</h1>
+                        {/* Flex container to align H1 and Button on the same line */}
+                        <div className="flex justify-between items-center mb-6">
+                            <h1 className="text-3xl font-bold text-[color:var(--accent-color)]">
+                                {t('currentJokes')}
+                            </h1>
+                            <button
+                                type="button"
+                                onClick={handleNewsletterClick}
+                                // Apply dynamic background and other styles
+                                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-white ${buttonBgClass}`}
+                            >
+                                {t('newsletter')}
+                            </button>
+                        </div>
+
+                        {/* Animated container for the MailTr component */}
+                        <div
+                          className={`transition-all duration-500 ease-in-out overflow-hidden ${isMailTrVisible ? 'max-h-[1000px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
+                        >
+                           <MailTr />
+                        </div>
+                        {/* --- MODIFICATION END --- */}
+
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
                         </div>
