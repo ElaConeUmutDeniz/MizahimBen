@@ -2,6 +2,13 @@
 import React from 'react';
 import { useTranslation } from '../lib/i18n';
 import { SafeMailto } from '../lib/utils';
+import { View } from '../types';
+
+interface HeaderProps {
+    currentView: View;
+    setView: (view: View) => void;
+}
+
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -12,7 +19,8 @@ const Footer: React.FC = () => {
                 <p className="mb-2">{t('copyright')}</p>
                 <p className="mb-2 font-semibold">{t('geminiDisclaimer')}</p>
                 <a href="https://www.instagram.com/MizahimBen">Instagram: @mizahimben</a>
-                <a className="text-blue-500">Privacy Policy</a>
+
+                <a className="mb-2 text-blue-500" onClick={setView === 'pp'}>Privacy Policy</a>
                 <p>
                     <SafeMailto email="contact@mizahimben.com">
                         {t('contact')}
