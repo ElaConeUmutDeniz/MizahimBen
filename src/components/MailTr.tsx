@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Import useEffect
 
 const MailTr = () => {
+  // --- MODIFICATION START ---
+  // This hook will load the Google reCAPTCHA script
+  useEffect(() => {
+    // Create a script element
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = true;
+    script.defer = true;
+
+    // Append the script to the body
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []); // The empty dependency array ensures this runs only once when the component mounts
+  // --- MODIFICATION END ---
+
+
   return (
     <>
       <style
@@ -36,12 +56,10 @@ const MailTr = () => {
         className="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-29674437"
       >
         <div className="ml-form-align-center ">
-          {/* --- MODIFICATION START --- */}
           <div 
-            className="ml-form-embedWrapper embedForm" 
+            className="ml-form-embedWrapper embedForm"
             style={{ maxWidth: 'none' }}
           >
-          {/* --- MODIFICATION END --- */}
             <div className="ml-form-embedBody ml-form-embedBodyDefault row-form">
               <div className="ml-form-embedContent" style={{}}>
                 <h4>
@@ -62,7 +80,6 @@ const MailTr = () => {
                 <div className="ml-form-formContent">
                   <div className="ml-form-fieldRow ml-last-item">
                     <div className="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                      {/* input */}
                       <input
                         aria-label="email"
                         aria-required="true"
@@ -73,21 +90,9 @@ const MailTr = () => {
                         placeholder="E-Posta adresi"
                         autoComplete="email"
                       />
-                      {/* /input */}
-                      {/* textarea */}
-                      {/* /textarea */}
-                      {/* select */}
-                      {/* /select */}
-                      {/* checkboxes */}
-                      {/* /checkboxes */}
-                      {/* radio */}
-                      {/* /radio */}
-                      {/* countries */}
-                      {/* /countries */}
                     </div>
                   </div>
                 </div>
-                {/* Privacy policy */}
                 <div className="ml-form-embedPermissions" style={{}}>
                   <div className="ml-form-embedPermissionsContent default privacy-policy">
                     <p>
@@ -96,7 +101,6 @@ const MailTr = () => {
                     </p>
                   </div>
                 </div>
-                {/* /Privacy policy */}
                 <div className="ml-form-interestGroupsRow ml-block-groups ml-validate-required">
                   <div
                     className="ml-form-interestGroupsRowCheckbox group"
@@ -136,6 +140,7 @@ const MailTr = () => {
                         '\n  .ml-form-recaptcha {\n    margin-bottom: 20px;\n  }\n\n  .ml-form-recaptcha.ml-error iframe {\n    border: solid 1px #ff0000;\n  }\n\n  @media screen and (max-width: 480px) {\n    .ml-form-recaptcha {\n      width: 220px!important\n    }\n    .g-recaptcha {\n      transform: scale(0.78);\n      -webkit-transform: scale(0.78);\n      transform-origin: 0 0;\n      -webkit-transform-origin: 0 0;\n    }\n  }\n'
                     }}
                   />
+                  {/* This div is the placeholder for the reCAPTCHA widget */}
                   <div
                     className="g-recaptcha"
                     data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"
