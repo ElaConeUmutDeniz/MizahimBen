@@ -1,4 +1,3 @@
-// src/app.tsx
 import React, { useState, useEffect } from 'react';
 import { SettingsProvider, useSettings } from './hooks/useSettings';
 import Header from './components/Header';
@@ -7,12 +6,13 @@ import JokeCard from './components/JokeCard';
 import AIAssistant from './components/AIAssistant';
 import HelpPage from './components/HelpPage';
 import Install from './components/install'
-import { useTranslation } from './lib/i18n';
+import Language, { useTranslation } from './lib/i18n';
 import { getJokeSource } from './services/jokeService';
 import { JokeSource, View } from './types';
 import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
 import MailTr from './components/MailTr'
+import MailEn from './components/MailEn'
 
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
@@ -23,14 +23,18 @@ const MainContent: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     // --- MODIFICATION START ---
-    const [isMailTrVisible, setIsMailTrVisible] = useState(false);
+    const [isNewsletterFormVisible, setIsNewsletterFormVisible] = useState(false);
     // State to track if the button has EVER been clicked, persists in localStorage
     const [hasButtonClicked, setHasButtonClicked] = useState(false);
+    // State to permanently hide the newsletter button, persists in localStorage
+    const [hideNewsletterButtonPermanently, setHideNewsletterButtonPermanently] = useState(false);
 
-    // Check localStorage on initial mount to see if the button was clicked before
+    // Check localStorage on initial mount
     useEffect(() => {
         const clicked = localStorage.getItem('newsletterButtonClicked') === 'true';
         setHasButtonClicked(clicked);
+        const hidePermanently = localStorage.getItem('hideNewsletterButtonPermanently') === 'true';
+        setHideNewsletterButtonPermanently(hidePermanently);
     }, []);
     // --- MODIFICATION END ---
 
@@ -57,13 +61,20 @@ const MainContent: React.FC = () => {
     // Handle the newsletter button click
     const handleNewsletterClick = () => {
         // Toggle the form visibility
-        setIsMailTrVisible(prev => !prev);
+        setIsNewsletterFormVisible(prev => !prev);
 
         // If this is the first time clicking, update state and localStorage
         if (!hasButtonClicked) {
             localStorage.setItem('newsletterButtonClicked', 'true');
             setHasButtonClicked(true);
         }
+    };
+
+    // Handle click to permanently hide the newsletter button
+    const handleHidePermanently = () => {
+        localStorage.setItem('hideNewsletterButtonPermanently', 'true');
+        setHideNewsletterButtonPermanently(true);
+        setIsNewsletterFormVisible(false); // Also hide the form
     };
     // --- MODIFICATION END ---
 
@@ -96,21 +107,33 @@ const MainContent: React.FC = () => {
                             <h1 className="text-3xl font-bold text-[color:var(--accent-color)]">
                                 {t('currentJokes')}
                             </h1>
-                            <button
-                                type="button"
-                                onClick={handleNewsletterClick}
-                                // Apply dynamic background and other styles
-                                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-white ${buttonBgClass}`}
-                            >
-                                {t('newsletter')}
-                            </button>
+                            {/* Conditionally render the newsletter button */}
+                            {!hideNewsletterButtonPermanently && (
+                                <button
+                                    type="button"
+                                    onClick={handleNewsletterClick}
+                                    // Apply dynamic background and other styles
+                                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors text-white ${buttonBgClass}`}
+                                >
+                                    {t('newsletter')}
+                                </button>
+                            )}
                         </div>
 
                         {/* Animated container for the MailTr component */}
                         <div
-                          className={`transition-all duration-500 ease-in-out overflow-hidden ${isMailTrVisible ? 'max-h-[1000px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
+                          className={`transition-all duration-500 ease-in-out overflow-hidden ${isNewsletterFormVisible ? 'max-h-[1000px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
                         >
-                           <MailTr />
+                           {/* Conditionally render MailTr or MailEn based on language */}
+                           {settings.language === 'tr' ? <MailTr /> : <MailEn />}
+                           
+                           {/* Button to permanently hide the newsletter feature */}
+                           <button
+                             onClick={handleHidePermanently}
+                             className="mt-4 text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+                           >
+                             {t('neverShowButton')}
+                           </button>
                         </div>
                         {/* --- MODIFICATION END --- */}
 
