@@ -842,6 +842,10 @@ export const useTranslation = () => {
             ru: 'Русский',
             pt: 'Português',
             hi: 'हिन्दी',
+            es: 'Español',
+            ja: '日本語',
+            id: 'Bahasa Indonesia',
+            ar: 'العربية'
         }
         return names[code];
     }, []);
