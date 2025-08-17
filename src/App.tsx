@@ -12,7 +12,7 @@ import { getJokeSource } from './services/jokeService';
 import { JokeSource, View } from './types';
 import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
-import MailTR from './components/MailTR'
+import MailTr from './components/MailTr'
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
@@ -66,15 +66,7 @@ const MainContent: React.FC = () => {
 >
     {t('newsletter')}
 </button>
-  <MailerLite
-    code={1738794}
-    trackerId="1tuas4"
-    header={(<div>Some Instructions</div>)}
-    submitButtonContent="Submit"
-    submittingButtonContent="Submitting..."
-    submissionComplete={(<div>Success!</div>)}
-    emailPlaceholder="Enter your email..."
-  />
+  <MailTr />
 </h1>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
