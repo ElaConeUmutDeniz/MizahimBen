@@ -66,8 +66,6 @@ const MainContent: React.FC = () => {
 >
     {t('newsletter')}
 </button>
-    {t('newsletter')}
-</button>
 </h1>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
