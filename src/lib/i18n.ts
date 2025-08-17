@@ -70,7 +70,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "Yapay Zeka",
     "yardim": "Yardım",
     "indir": "İndir",
-    "newsletter": "E-Posta sayesinde bizden güncel bildirimler al"
+    "newsletter": "E-Posta sayesinde bizden güncel bildirimler al",
+    "neverShowButton": "Bu butonu hiçbir zaman gösterme (önbellek sıfırlanana kadar)"
   },
   "en": {
     "siteTitle": "Mizahim Ben - I'm Humor",
@@ -139,7 +140,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "AI",
     "yardim": "Help",
     "indir": "Download",
-    "newsletter": "Get the latest notifications from us via E-mail"
+    "newsletter": "Get the latest notifications from us via E-mail",
+    "neverShowButton": "Never show this button again (until cache is cleared)"
   },
   "uz": {
     "siteTitle": "Mizahim Ben - Men Hazilman ",
@@ -189,7 +191,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "AI",
     "yardim": "Yordam",
     "indir": "Yuklab Olish",
-    "newsletter": "Bizdan eng so'nggi bildirishnomalarni elektron pochta orqali oling (Faqat ingliz va turk tillarida)"
+    "newsletter": "Bizdan eng so'nggi bildirishnomalarni elektron pochta orqali oling (Faqat ingliz va turk tillarida)",
+    "neverShowButton": "Bu tugmani boshqa hech qachon ko'rsatma (kesh tozalanmaguncha)"
   },
   "az": {
     "siteTitle": "Mizahim Ben- Mən Zarafatam",
@@ -239,7 +242,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "Süni İntellekt",
     "yardim": "Kömək",
     "indir": "Yüklə",
-    "newsletter": "Bizdən ən son bildirişləri e-poçt vasitəsilə alın (Yalnız ingilis və türk dillərində)"
+    "newsletter": "Bizdən ən son bildirişləri e-poçt vasitəsilə alın (Yalnız ingilis və türk dillərində)",
+    "neverShowButton": "Bu düyməni bir daha heç vaxt göstərmə (keş təmizlənənə qədər)"
   },
   "de": {
     "siteTitle": "Mizahim Ben - Ich bin Humor",
@@ -289,7 +293,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "KI",
     "yardim": "Hilfe",
     "indir": "Herunterladen",
-    "newsletter": "Erhalten Sie die neuesten Benachrichtigungen von uns per E-Mail (Nur auf Englisch und Türkisch)"
+    "newsletter": "Erhalten Sie die neuesten Benachrichtigungen von uns per E-Mail (Nur auf Englisch und Türkisch)",
+    "neverShowButton": "Diesen Button nie wieder anzeigen (bis der Cache geleert wird)"
   },
   "fr": {
     "siteTitle": "Mizahim Ben - Je suis l'Humour",
@@ -339,7 +344,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "IA",
     "yardim": "Aide",
     "indir": "Télécharger",
-    "newsletter": "Recevez les dernières notifications de notre part par e-mail (Uniquement en anglais et en turc)"
+    "newsletter": "Recevez les dernières notifications de notre part par e-mail (Uniquement en anglais et en turc)",
+    "neverShowButton": "Ne plus jamais afficher ce bouton (jusqu'à ce que le cache soit vidé)"
   },
   "zh": {
     "siteTitle": "Mizahim Ben - 我是幽默",
@@ -389,7 +395,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "AI",
     "yardim": "帮助",
     "indir": "下载",
-    "newsletter": "通过电子邮件接收我们的最新通知 (仅提供英语和土耳其语)"
+    "newsletter": "通过电子邮件接收我们的最新通知 (仅提供英语和土耳其语)",
+    "neverShowButton": "不再显示此按钮 (直到清除缓存)"
   },
   "ru": {
     "siteTitle": "Mizahim Ben - Я Юмор",
@@ -439,7 +446,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "ИИ",
     "yardim": "Помощь",
     "indir": "Скачать",
-    "newsletter": "Получайте последние уведомления от нас по электронной почте (Только на английском и турецком языках)"
+    "newsletter": "Получайте последние уведомления от нас по электронной почте (Только на английском и турецком языках)",
+    "neverShowButton": "Больше никогда не показывать эту кнопку (пока не будет очищен кеш)"
   },
   "pt": {
     "siteTitle": "Mizahim Ben - Eu Sou o Humor",
@@ -489,7 +497,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "IA",
     "yardim": "Ajuda",
     "indir": "Baixar",
-    "newsletter": "Receba as últimas notificações de nós por e-mail (Apenas em inglês e turco)"
+    "newsletter": "Receba as últimas notificações de nós por e-mail (Apenas em inglês e turco)",
+    "neverShowButton": "Nunca mais mostrar este botão (até o cache ser limpo)"
   },
   "hi": {
     "siteTitle": "Mizahim Ben - मैं हास्य हूँ",
@@ -539,7 +548,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "एआई",
     "yardim": "मदद",
     "indir": "डाउनलोड करें",
-    "newsletter": "हमसे नवीनतम सूचनाएं ई-मेल के माध्यम से प्राप्त करें (केवल अंग्रेजी और तुर्की में)"
+    "newsletter": "हमसे नवीनतम सूचनाएं ई-मेल के माध्यम से प्राप्त करें (केवल अंग्रेजी और तुर्की में)",
+    "neverShowButton": "यह बटन फिर कभी न दिखाएँ (कैश साफ़ होने तक)"
   },
   "es": {
     "siteTitle": "Mizahim Ben - Soy Humor",
@@ -608,7 +618,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "IA",
     "yardim": "Ayuda",
     "indir": "Descargar",
-    "newsletter": "Recibe las últimas notificaciones de nosotros por correo electrónico (Solo en inglés y turco)"
+    "newsletter": "Recibe las últimas notificaciones de nosotros por correo electrónico (Solo en inglés y turco)",
+    "neverShowButton": "No volver a mostrar este botón (hasta que se borre la caché)"
   },
   "ja": {
     "siteTitle": "Mizahim Ben - 私はユーモアです",
@@ -677,7 +688,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "AI",
     "yardim": "ヘルプ",
     "indir": "ダウンロード",
-    "newsletter": "メールで最新の通知を受け取る (英語とトルコ語のみ)"
+    "newsletter": "メールで最新の通知を受け取る (英語とトルコ語のみ)",
+    "neverShowButton": "このボタンを二度と表示しない (キャッシュがクリアされるまで)"
   },
   "id": {
     "siteTitle": "Mizahim Ben - Saya Humor",
@@ -746,7 +758,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "AI",
     "yardim": "Bantuan",
     "indir": "Unduh",
-    "newsletter": "Dapatkan notifikasi terbaru dari kami melalui E-mail (Hanya dalam bahasa Inggris dan Turki)"
+    "newsletter": "Dapatkan notifikasi terbaru dari kami melalui E-mail (Hanya dalam bahasa Inggris dan Turki)",
+    "neverShowButton": "Jangan pernah tampilkan tombol ini lagi (sampai cache dibersihkan)"
   },
   "ar": {
     "siteTitle": "Mizahim Ben - أنا الفكاهة",
@@ -815,7 +828,8 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "الذكاء الاصطناعي",
     "yardim": "مساعدة",
     "indir": "تحميل",
-    "newsletter": "احصل على آخر الإشعارات منا عبر البريد الإلكتروني (فقط باللغة الإنجليزية والتركية)"
+    "newsletter": "احصل على آخر الإشعارات منا عبر البريد الإلكتروني (فقط باللغة الإنجليزية والتركية)",
+    "neverShowButton": "لا تظهر هذا الزر مرة أخرى (حتى يتم مسح ذاكرة التخزين المؤقت)"
   },
 };
 export const useTranslation = () => {
