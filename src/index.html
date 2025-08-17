@@ -30,7 +30,19 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
+       <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              // This tells Tailwind that the 'sans' font family 
+              // should use your CSS variable.
+              sans: 'var(--font-family)',
+            },
+          },
+        },
+      }
+    </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSKL88EVR1"></script>
 <script>
