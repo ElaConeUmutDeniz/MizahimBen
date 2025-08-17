@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ currentView, setView }) => {
                 <p className="mb-2">{t('copyright')}</p>
                 <p className="mb-2 font-semibold">{t('geminiDisclaimer')}</p>
                 <a href="https://www.instagram.com/MizahimBen">Instagram: @mizahimben</a>
-
+<br />
                 {/* 3. Fix the onClick handler to call setView */}
                 <a
                     className="mb-2 text-blue-500 cursor-pointer"
