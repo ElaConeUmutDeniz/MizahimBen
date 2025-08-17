@@ -61,7 +61,7 @@ const MainContent: React.FC = () => {
         onClick={() => (window as any).ml('show', 'NK0MZI', true)}
     >
         {t('newsletter')}
-    </button></h1>
+    </a></h1>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
                         </div>
