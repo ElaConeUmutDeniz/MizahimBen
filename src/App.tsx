@@ -56,12 +56,23 @@ const MainContent: React.FC = () => {
             case 'home':
                 return (
                     <div>
-                        <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}   <button 
-        className='ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-[color:var(--accent-color)] text-white'
-        onClick={() => (window as any).ml('show', 'NK0MZI', true)} onMouseover={console.log("yarra")}
-    >
-        {t('newsletter')}
-    </button></h1>
+                        <h1 className="text-3xl font-bold mb-6 text-[color:var(--accent-color)]">{t('currentJokes')}  
+<button
+    type="button"
+    // Add the class back in, even with a manual onClick
+    className='ml-onclick-form flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors bg-[color:var(--accent-color)] text-white'
+    onClick={() => {
+        console.log("Attempting to show MailerLite form NK0MZI...");
+        if (window.ml) {
+            (window as any).ml('show', 'NK0MZI', true);
+        } else {
+            console.error("MailerLite 'ml' function not found.");
+        }
+    }}
+>
+    {t('newsletter')}
+</button>
+</h1>
                         <div className="space-y-6">
                             {jokeSource?.simdiki.map((url, index) => <JokeCard key={url + index} jokeUrl={url} />)}
                         </div>
