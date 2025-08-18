@@ -17,19 +17,12 @@ import MailTr from './components/MailTr';
 import MailEn from './components/MailEn';
 import PrivacyPolicy from './components/privacyPolicy';
 
-// --- SEO CHANGE 1: Import Helmet ---
-import { Helmet } from 'react-helmet-async';
-
-// --- SEO CHANGE 2: Define supported languages for hreflang tags ---
-const supportedLangs = [
-  'tr', 'en', 'uz', 'az', 'de', 'fr', 'zh', 
-  'ru', 'pt', 'hi', 'es', 'ja', 'id', 'ar'
+// --- ADD THIS ARRAY OF YOUR SUPPORTED LANGUAGES ---
+const SUPPORTED_LANGUAGES = [
+    'tr', 'en', 'uz', 'az', 'de', 'fr', 'zh', 'ru', 'pt', 'hi', 'es', 'ja', 'id', 'ar'
 ];
+// ---------------------------------------------------
 
-
-// ========================================================================
-// MainContent Component - NO CHANGES MADE HERE
-// ========================================================================
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
@@ -166,74 +159,73 @@ const MainContent: React.FC = () => {
     );
 };
 
-// ========================================================================
-// ThemedApp Component - THIS IS WHERE THE CHANGES ARE APPLIED
-// ========================================================================
 const ThemedApp: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
 
-    // THIS EFFECT SYNCS THE BROWSER URL WITH THE CURRENT LANGUAGE - NO CHANGE NEEDED
+    // THIS EFFECT SYNCS THE BROWSER URL WITH THE CURRENT LANGUAGE
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         if (params.get('lang') !== settings.language) {
             params.set('lang', settings.language);
             const newUrl = `${window.location.pathname}?${params.toString()}`;
+            // Use replaceState to update URL without a page reload or new history entry
             window.history.replaceState({}, '', newUrl);
         }
-    }, [settings.language]);
+    }, [settings.language]); // Reruns only when the language changes
 
-    // This effect now ONLY handles theming. Metadata is handled by Helmet.
+    // This effect handles theming and NON-SEO document updates
     useEffect(() => {
         const root = document.documentElement;
+        // --- ADDED THIS LINE TO DYNAMICALLY UPDATE HTML LANG ---
+        root.lang = settings.language;
+        // ----------------------------------------------------
+
         root.classList.remove('light', 'dark');
         root.classList.add(settings.theme);
         root.style.setProperty('--accent-color', settings.secondaryColor);
         root.style.setProperty('--font-family', settings.font);
 
-        // --- SEO CHANGE 3: Remove old, direct DOM manipulation ---
-        /*
-        document.title = t('siteTitle');
-        const metaDesc = document.getElementById('meta-description');
-        if (metaDesc) {
-            metaDesc.setAttribute('content', t('siteDescription'));
-        }
-        */
+        // --- DELETED THE OLD DOM MANIPULATION FOR TITLE AND META DESCRIPTION ---
+        // document.title = t('siteTitle'); // <-- REMOVED
+        // const metaDesc = document.getElementById('meta-description'); // <-- REMOVED
+        // if (metaDesc) { // <-- REMOVED
+        //     metaDesc.setAttribute('content', t('siteDescription')); // <-- REMOVED
+        // } // <-- REMOVED
 
-    }, [settings]); // The 't' dependency is no longer needed but leaving it is harmless
+    }, [settings, t]);
 
     return (
-        <>
-            {/* --- SEO CHANGE 4: Add Helmet to manage all <head> tags dynamically --- */}
-            <Helmet>
-                <html lang={settings.language} />
-                <title>{t('siteTitle')}</title>
-                <meta name="description" content={t('siteDescription')} />
+      <>
+        {/* --- SEO METADATA MANAGED BY REACT 19 --- */}
+        {/* This renders the <title> tag in the document's <head> */}
+        <title>{t('siteTitle')}</title>
 
-                {/* Generate hreflang tags for all supported languages */}
-                {supportedLangs.map(lang => (
-                    <link
-                        key={lang}
-                        rel="alternate"
-                        hrefLang={lang}
-                        href={`https://mizahimben.com/?lang=${lang}`}
-                    />
-                ))}
-                
-                {/* Add the x-default fallback tag */}
-                <link rel="alternate" hrefLang="x-default" href="https://mizahimben.com/?lang=tr" />
-            </Helmet>
+        {/* This renders the <meta name="description"> tag in the <head> */}
+        <meta name="description" content={t('siteDescription')} />
 
-            {/* Your main content remains the same */}
-            <MainContent />
-        </>
+        {/* These render the hreflang links to tell Google about all language versions */}
+        {SUPPORTED_LANGUAGES.map((langCode) => (
+            <link
+                key={langCode}
+                rel="alternate"
+                hrefLang={langCode}
+                href={`https://mizahimben.com/?lang=${langCode}`}
+            />
+        ))}
+        {/* This renders the essential x-default hreflang tag */}
+        <link
+            rel="alternate"
+            hrefLang="x-default"
+            href="https://mizahimben.com/?lang=tr"
+        />
+        {/* --- END OF SEO METADATA SECTION --- */}
+
+        <MainContent />
+      </>
     );
 }
 
-
-// ========================================================================
-// App Component - NO CHANGES MADE HERE
-// ========================================================================
 const App: React.FC = () => {
     return (
         <SettingsProvider>
