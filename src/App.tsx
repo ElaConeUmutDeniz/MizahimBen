@@ -1,3 +1,5 @@
+// app.tsx
+
 import React, { useState, useEffect } from 'react';
 import { SettingsProvider, useSettings } from './hooks/useSettings';
 import Header from './components/Header';
@@ -13,7 +15,7 @@ import { DEFAULT_JOKE_SOURCE_URL } from './constants';
 import LoadingSpinner from './components/LoadingSpinner';
 import MailTr from './components/MailTr';
 import MailEn from './components/MailEn';
-import PrivacyPolicy from './components/privacyPolicy'; // Renamed to follow component naming conventions
+import PrivacyPolicy from './components/privacyPolicy';
 
 const MainContent: React.FC = () => {
     const { settings } = useSettings();
@@ -134,8 +136,6 @@ const MainContent: React.FC = () => {
             case 'install':
                 return <Install />;
             case 'pp':
-                // Note: Component names should start with an uppercase letter. 
-                // I've changed 'pp' to 'PrivacyPolicy' for best practice.
                 return <PrivacyPolicy />;
             default:
                 return <div>{t('pageNotFound')}</div>;
@@ -148,7 +148,6 @@ const MainContent: React.FC = () => {
             <main className="flex-grow container mx-auto px-4 py-8">
                 {renderView()}
             </main>
-            {/* THIS IS THE CORRECTED LINE */}
             <Footer currentView={view} setView={setView} />
         </div>
     );
@@ -157,6 +156,22 @@ const MainContent: React.FC = () => {
 const ThemedApp: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
+
+    // ================== INTEGRATED CODE START ==================
+    // This effect synchronizes the browser's URL query parameter with the current language setting.
+    // It runs whenever the language changes in the settings.
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        // We only update the URL if it's different to avoid creating unnecessary browser history entries.
+        if (params.get('lang') !== settings.language) {
+            params.set('lang', settings.language);
+            // We use `replaceState` to update the URL without triggering a page reload.
+            // This is better than `pushState` because the user won't have to click "back" through language changes.
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
+            window.history.replaceState({}, '', newUrl);
+        }
+    }, [settings.language]); // The dependency array ensures this effect only runs when the language changes.
+    // =================== INTEGRATED CODE END ===================
 
     useEffect(() => {
         const root = document.documentElement;
