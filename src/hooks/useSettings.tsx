@@ -4,38 +4,58 @@ import React, { createContext, useState, useEffect, useCallback, ReactNode } fro
 import { Settings, Language, SupportedLanguages } from '../types';
 import { DEFAULT_JOKE_SOURCE_URL, FONT_OPTIONS } from '../constants';
 
+// Set the ultimate fallback language here
+const FALLBACK_LANGUAGE: Language = 'en';
+
 const defaultSettings: Settings = {
     theme: 'dark',
     secondaryColor: '#3b82f6',
     font: FONT_OPTIONS[0].value,
-    language: 'tr', // This is the fallback default, but our logic will usually override it.
+    language: FALLBACK_LANGUAGE, // Default to the fallback language
     jokeSourceUrl: DEFAULT_JOKE_SOURCE_URL,
     notificationsEnabled: false,
     notificationTime: '09:00',
 };
 
 /**
- * Determines language from URL or Browser only. Does NOT check localStorage.
- * This is used when no setting is saved yet.
- * Priority: 1. URL Query -> 2. Browser Language -> 3. Fallback to English ('en').
+ * This function is now the single source of truth for the initial settings.
+ * It follows the priority list correctly and explicitly.
  */
-const getLanguageForFirstVisit = (): Language => {
-    // Priority 1: Check for a language query in the URL
+const getInitialSettings = (): Settings => {
+    // 1. Check for a manually saved setting in localStorage.
+    try {
+        const item = window.localStorage.getItem('mizahimben-settings');
+        if (item) {
+            const storedSettings = JSON.parse(item);
+            // If it contains a VALID language, respect it above all else.
+            if (SupportedLanguages.includes(storedSettings.language)) {
+                console.log(`[Language] Found valid saved language in localStorage: ${storedSettings.language}`);
+                // Merge with defaults to ensure all keys are present
+                return { ...defaultSettings, ...storedSettings };
+            }
+        }
+    } catch (e) {
+        console.error("Failed to parse settings from localStorage", e);
+    }
+
+    // 2. No valid language in storage. Check the URL query parameter.
     const params = new URLSearchParams(window.location.search);
     const langFromUrl = params.get('lang');
     if (langFromUrl && (SupportedLanguages as readonly string[]).includes(langFromUrl)) {
-        return langFromUrl as Language;
+        console.log(`[Language] Detected language from URL parameter: ${langFromUrl}`);
+        return { ...defaultSettings, language: langFromUrl as Language };
     }
 
-    // Priority 2: Detect browser language
-    // navigator.language can be 'en-US', 'fr-CA', etc. We only want the 'en' or 'fr' part.
+    // 3. No language in URL. Detect the browser's language.
     const browserLang = navigator.language.split('-')[0];
     if ((SupportedLanguages as readonly string[]).includes(browserLang)) {
-        return browserLang as Language;
+        console.log(`[Language] Detected browser language: ${browserLang}`);
+        return { ...defaultSettings, language: browserLang as Language };
     }
 
-    // Priority 3: Default to English if browser language is not supported
-    return 'en';
+    // 4. If all else fails, use the hardcoded fallback language.
+    console.log(`[Language] No supported language detected. Using fallback: ${FALLBACK_LANGUAGE}`);
+    return { ...defaultSettings, language: FALLBACK_LANGUAGE };
 };
 
 interface SettingsContextType {
@@ -47,35 +67,10 @@ interface SettingsContextType {
 export const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [settings, setSettings] = useState<Settings>(() => {
-        // Step 1: Try to load any existing settings from localStorage.
-        let storedSettings: Partial<Settings> = {};
-        try {
-            const item = window.localStorage.getItem('mizahimben-settings');
-            if (item) {
-                storedSettings = JSON.parse(item);
-            }
-        } catch (error) {
-            console.error('Error reading settings from localStorage', error);
-        }
+    // The useState initializer now calls our robust function once.
+    const [settings, setSettings] = useState<Settings>(getInitialSettings);
 
-        // Step 2: Determine the definitive initial language with the CORRECT priority.
-        const initialLanguage =
-            // Priority 1: Use language from localStorage if it exists and is valid.
-            SupportedLanguages.includes(storedSettings.language as any)
-                ? (storedSettings.language as Language)
-                // Priority 2 & 3: If no stored language, get it from URL or Browser.
-                : getLanguageForFirstVisit();
-
-        // Step 3: Combine everything. Defaults first, then stored settings,
-        // and finally, overwrite with the definitive language we just calculated.
-        return {
-            ...defaultSettings,
-            ...storedSettings,
-            language: initialLanguage,
-        };
-    });
-
+    // This effect saves settings to localStorage whenever they change.
     useEffect(() => {
         try {
             window.localStorage.setItem('mizahimben-settings', JSON.stringify(settings));
