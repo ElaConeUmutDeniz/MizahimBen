@@ -1,7 +1,7 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { HelmetProvider } from 'react-helmet-async'; // 👈 ADD THIS LINE
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,9 +11,6 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    {/* 👇 WRAP YOUR APP WITH THE PROVIDER 👇 */}
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <App />
   </React.StrictMode>
 );
