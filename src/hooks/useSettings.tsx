@@ -4,58 +4,43 @@ import React, { createContext, useState, useEffect, useCallback, ReactNode } fro
 import { Settings, Language, SupportedLanguages } from '../types';
 import { DEFAULT_JOKE_SOURCE_URL, FONT_OPTIONS } from '../constants';
 
-// Set the ultimate fallback language here
-const FALLBACK_LANGUAGE: Language = 'en';
-
+// This default object is a fallback. The language property will be immediately
+// replaced by our smarter detection logic on the first load.
 const defaultSettings: Settings = {
     theme: 'dark',
     secondaryColor: '#3b82f6',
     font: FONT_OPTIONS[0].value,
-    language: FALLBACK_LANGUAGE, // Default to the fallback language
+    language: 'tr', // This is the value that was causing the problem. It will be overridden.
     jokeSourceUrl: DEFAULT_JOKE_SOURCE_URL,
     notificationsEnabled: false,
     notificationTime: '09:00',
 };
 
 /**
- * This function is now the single source of truth for the initial settings.
- * It follows the priority list correctly and explicitly.
+ * Determines the initial language based on a clear priority:
+ * 1. Manually set language from localStorage (checked inside the main hook).
+ * 2. Language from the URL query parameter (?lang=...).
+ * 3. User's browser/system language.
+ * 4. Default to 'en' if none of the above are supported.
  */
-const getInitialSettings = (): Settings => {
-    // 1. Check for a manually saved setting in localStorage.
-    try {
-        const item = window.localStorage.getItem('mizahimben-settings');
-        if (item) {
-            const storedSettings = JSON.parse(item);
-            // If it contains a VALID language, respect it above all else.
-            if (SupportedLanguages.includes(storedSettings.language)) {
-                console.log(`[Language] Found valid saved language in localStorage: ${storedSettings.language}`);
-                // Merge with defaults to ensure all keys are present
-                return { ...defaultSettings, ...storedSettings };
-            }
-        }
-    } catch (e) {
-        console.error("Failed to parse settings from localStorage", e);
-    }
-
-    // 2. No valid language in storage. Check the URL query parameter.
+const getInitialLanguage = (): Language => {
+    // Priority 2: Check for a language query in the URL first.
+    // This allows sharing links with specific languages.
     const params = new URLSearchParams(window.location.search);
     const langFromUrl = params.get('lang');
     if (langFromUrl && (SupportedLanguages as readonly string[]).includes(langFromUrl)) {
-        console.log(`[Language] Detected language from URL parameter: ${langFromUrl}`);
-        return { ...defaultSettings, language: langFromUrl as Language };
+        return langFromUrl as Language;
     }
 
-    // 3. No language in URL. Detect the browser's language.
+    // Priority 3: Detect browser language.
+    // navigator.language can be 'en-US', 'fr-CA', etc. We only want the 'en' or 'fr' part.
     const browserLang = navigator.language.split('-')[0];
     if ((SupportedLanguages as readonly string[]).includes(browserLang)) {
-        console.log(`[Language] Detected browser language: ${browserLang}`);
-        return { ...defaultSettings, language: browserLang as Language };
+        return browserLang as Language;
     }
 
-    // 4. If all else fails, use the hardcoded fallback language.
-    console.log(`[Language] No supported language detected. Using fallback: ${FALLBACK_LANGUAGE}`);
-    return { ...defaultSettings, language: FALLBACK_LANGUAGE };
+    // Priority 4: Default to English if the browser language is not supported.
+    return 'en';
 };
 
 interface SettingsContextType {
@@ -67,8 +52,35 @@ interface SettingsContextType {
 export const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    // The useState initializer now calls our robust function once.
-    const [settings, setSettings] = useState<Settings>(getInitialSettings);
+    // THIS IS THE CORRECTED LOGIC. IT REPLACES THE OLD INITIALIZER.
+    const [settings, setSettings] = useState<Settings>(() => {
+        try {
+            const storedSettingsJSON = window.localStorage.getItem('mizahimben-settings');
+            const storedSettings = storedSettingsJSON ? JSON.parse(storedSettingsJSON) : {};
+
+            // Priority 1: Use the language from localStorage if it exists and is valid.
+            if (storedSettings.language && SupportedLanguages.includes(storedSettings.language)) {
+                 // If a language is already saved, use it and combine with other saved settings.
+                 return { ...defaultSettings, ...storedSettings };
+            }
+
+            // If no language is in localStorage, determine it from URL or browser.
+            const detectedLanguage = getInitialLanguage();
+
+            // Return the final initial settings, combining defaults, any stored non-language settings,
+            // and the correctly detected language.
+            return {
+                ...defaultSettings,
+                ...storedSettings,
+                language: detectedLanguage,
+            };
+
+        } catch (error) {
+            console.error('Error initializing settings', error);
+            // If everything fails, still try to detect the language instead of using the hardcoded default.
+            return { ...defaultSettings, language: getInitialLanguage() };
+        }
+    });
 
     // This effect saves settings to localStorage whenever they change.
     useEffect(() => {
