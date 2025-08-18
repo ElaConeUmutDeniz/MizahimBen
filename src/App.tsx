@@ -17,7 +17,7 @@ import MailTr from './components/MailTr';
 import MailEn from './components/MailEn';
 import PrivacyPolicy from './components/privacyPolicy';
 
-// --- ADD THIS ARRAY OF YOUR SUPPORTED LANGUAGES ---
+// --- ADDED THIS ARRAY OF YOUR SUPPORTED LANGUAGES ---
 const SUPPORTED_LANGUAGES = [
     'tr', 'en', 'uz', 'az', 'de', 'fr', 'zh', 'ru', 'pt', 'hi', 'es', 'ja', 'id', 'ar'
 ];
@@ -169,42 +169,35 @@ const ThemedApp: React.FC = () => {
         if (params.get('lang') !== settings.language) {
             params.set('lang', settings.language);
             const newUrl = `${window.location.pathname}?${params.toString()}`;
-            // Use replaceState to update URL without a page reload or new history entry
             window.history.replaceState({}, '', newUrl);
         }
-    }, [settings.language]); // Reruns only when the language changes
+    }, [settings.language]);
 
     // This effect handles theming and NON-SEO document updates
     useEffect(() => {
         const root = document.documentElement;
-        // --- ADDED THIS LINE TO DYNAMICALLY UPDATE HTML LANG ---
         root.lang = settings.language;
-        // ----------------------------------------------------
-
         root.classList.remove('light', 'dark');
         root.classList.add(settings.theme);
         root.style.setProperty('--accent-color', settings.secondaryColor);
         root.style.setProperty('--font-family', settings.font);
-
-        // --- DELETED THE OLD DOM MANIPULATION FOR TITLE AND META DESCRIPTION ---
-        // document.title = t('siteTitle'); // <-- REMOVED
-        // const metaDesc = document.getElementById('meta-description'); // <-- REMOVED
-        // if (metaDesc) { // <-- REMOVED
-        //     metaDesc.setAttribute('content', t('siteDescription')); // <-- REMOVED
-        // } // <-- REMOVED
-
     }, [settings, t]);
+
+    // --- NEW: Define variables for social media meta tags ---
+    const pageUrl = `https://mizahimben.com/?lang=${settings.language}`;
+    const siteTitle = t('siteTitle');
+    const siteDescription = t('siteDescription');
+    // NOTE: For best results, replace this logo with a larger image (e.g., 1200x630px).
+    const imageUrl = "https://raw.githubusercontent.com/ElaConeUmutDeniz/MizahimBen/ae18144c60789a98210a44ba12853d7d412e53a5/logo.png";
+    // --------------------------------------------------------
 
     return (
       <>
-        {/* --- SEO METADATA MANAGED BY REACT 19 --- */}
-        {/* This renders the <title> tag in the document's <head> */}
-        <title>{t('siteTitle')}</title>
+        {/* --- Primary SEO Meta Tags --- */}
+        <title>{siteTitle}</title>
+        <meta name="description" content={siteDescription} />
 
-        {/* This renders the <meta name="description"> tag in the <head> */}
-        <meta name="description" content={t('siteDescription')} />
-
-        {/* These render the hreflang links to tell Google about all language versions */}
+        {/* --- hreflang Tags for Multilingual SEO --- */}
         {SUPPORTED_LANGUAGES.map((langCode) => (
             <link
                 key={langCode}
@@ -213,13 +206,28 @@ const ThemedApp: React.FC = () => {
                 href={`https://mizahimben.com/?lang=${langCode}`}
             />
         ))}
-        {/* This renders the essential x-default hreflang tag */}
         <link
             rel="alternate"
             hrefLang="x-default"
             href="https://mizahimben.com/?lang=tr"
         />
-        {/* --- END OF SEO METADATA SECTION --- */}
+
+        {/* --- START: Open Graph / Facebook Meta Tags --- */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="Mizahım Ben" />
+        {/* --- END: Open Graph Meta Tags --- */}
+        
+        {/* --- START: Twitter Card Meta Tags --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={pageUrl} />
+        <meta name="twitter:title" content={siteTitle} />
+        <meta name="twitter:description" content={siteDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        {/* --- END: Twitter Card Meta Tags --- */}
 
         <MainContent />
       </>
