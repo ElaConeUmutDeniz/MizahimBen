@@ -157,21 +157,15 @@ const ThemedApp: React.FC = () => {
     const { settings } = useSettings();
     const { t } = useTranslation();
 
-    // ================== INTEGRATED CODE START ==================
     // This effect synchronizes the browser's URL query parameter with the current language setting.
-    // It runs whenever the language changes in the settings.
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        // We only update the URL if it's different to avoid creating unnecessary browser history entries.
         if (params.get('lang') !== settings.language) {
             params.set('lang', settings.language);
-            // We use `replaceState` to update the URL without triggering a page reload.
-            // This is better than `pushState` because the user won't have to click "back" through language changes.
             const newUrl = `${window.location.pathname}?${params.toString()}`;
             window.history.replaceState({}, '', newUrl);
         }
-    }, [settings.language]); // The dependency array ensures this effect only runs when the language changes.
-    // =================== INTEGRATED CODE END ===================
+    }, [settings.language]);
 
     useEffect(() => {
         const root = document.documentElement;
