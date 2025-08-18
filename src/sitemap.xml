@@ -22,9 +22,10 @@
     
     <!-- x-default is important! It tells Google which version to show if a user's language doesn't match any you offer. -->
     <!-- You can point this to your main language (Turkish) or a widely-spoken language like English. -->
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mizahimben.com/?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mizahimben.com/?lang=en" />
   </url>
 
   <!-- If you have other pages, create a similar <url> block for each of them -->
 
 </urlset>
+
