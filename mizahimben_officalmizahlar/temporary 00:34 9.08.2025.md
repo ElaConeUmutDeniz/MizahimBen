@@ -1,1 +1,1 @@
-**Şuan bu website, yoğun bakım modunda ve pek çok özellik rafine ediliyor, iyileştiriliyor. **
+## Mizahım Ben sitesi hakkında bildiriler, haberler buraya gelecektir. Mizah paylaşanlar, kendi bildirilerini burada gösterebilirler.
