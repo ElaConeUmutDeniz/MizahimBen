@@ -70,7 +70,7 @@ const translations: Record<Language, Record<string, string>> = {
     "yapayzeka": "Yapay Zeka",
     "yardim": "Yardım",
     "indir": "İndir",
-    "newsletter": "E-Posta sayesinde bizden güncel bildirimler al",
+    "newsletter": "E-Posta sayesinde bizden güncel bildirimler al. knk muhammed buraya tıkla sonra eposta gir hadi la destek epostandan şifreyi almayız",
     "neverShowButton": "Bu butonu hiçbir zaman gösterme (önbellek sıfırlanana kadar)"
   },
   "en": {
