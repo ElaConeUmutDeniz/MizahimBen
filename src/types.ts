@@ -8,7 +8,7 @@ export interface AllowedSources {
   [key: string]: string;
 }
 
-export type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark' | 'oled';
 export type View = 'home' | 'old' | 'ai' | 'help' | 'install' | 'pp' ;
 
 export const SupportedLanguages = ['tr', 'en', 'uz', 'az', 'de', 'fr', 'zh', 'ru', 'pt', 'hi', 'es', 'ja', 'id', 'ar'] as const;
