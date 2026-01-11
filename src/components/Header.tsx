@@ -52,6 +52,19 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
                             <NavButton label={t('yapayzeka')} icon={<SparklesIcon />} isActive={currentView === 'ai'} onClick={() => setView('ai')} />
                             <NavButton label={t('yardim')} icon={<BookOpenIcon />} isActive={currentView === 'help'} onClick={() => setView('help')} />
                             <NavButton label={t('indir')} icon={<AndroidIcon />} isActive={currentView === 'install'} onClick={() => setView('install')} />
+                            
+<form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
+
                             <button
                                 onClick={() => setIsSettingsOpen(true)}
                                 className="p-2 rounded-full text-[var(--secondary-text)] hover:bg-[var(--secondary-bg)] hover:text-[color:var(--accent-color)] transition-colors"
