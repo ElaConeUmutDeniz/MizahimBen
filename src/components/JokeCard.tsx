@@ -77,9 +77,9 @@ import { DiscussionEmbed } from 'disqus-react';
     shortname='mizahimben'
     config={
         {
-            url: this.props.article.url,
-            identifier: this.props.article.id,
-            title: this.props.article.title,
+            url: article.url,
+            identifier: article.id,
+            title: article.title,
             language: 'tr.TR' //e.g. for Traditional Chinese (Taiwan)
         }
     }
