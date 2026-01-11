@@ -3,8 +3,7 @@ import { getJokeContent } from '../services/jokeService';
 import { useSettings } from '../hooks/useSettings';
 import { useTranslation } from '../lib/i18n';
 import LoadingSpinner from './LoadingSpinner';
-import { DiscussionEmbed } from 'disqus-react';
-import PropTypes from 'prop-types'; // Eğer gerekliyse
+
 interface JokeCardProps {
     jokeUrl: string;
 }
@@ -71,19 +70,8 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
                     {t('translate')}
                 </a>
 
-import { DiscussionEmbed } from 'disqus-react';
 
-<DiscussionEmbed
-    shortname='mizahimben'
-    config={
-        {
-            url: this.props.article.url,
-            identifier: this.props.article.id,
-            title: this.props.article.title,
-            language: 'tr.TR' //e.g. for Traditional Chinese (Taiwan)
-        }
-    }
-/>
+
 
 
 
