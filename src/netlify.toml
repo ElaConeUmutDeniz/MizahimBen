@@ -11,3 +11,5 @@
   command = "npm run build"
   # This tells Netlify where the final static site files are after the build.
   publish = "dist"
+[build.environment]
+  NETLIFY_PRERENDER_ENABLED = "true"
