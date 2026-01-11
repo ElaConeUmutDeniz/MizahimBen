@@ -177,7 +177,7 @@ const ThemedApp: React.FC = () => {
     useEffect(() => {
         const root = document.documentElement;
         root.lang = settings.language;
-        root.classList.remove('light', 'dark');
+        root.classList.remove('light', 'dark', 'oled');
         root.classList.add(settings.theme);
         root.style.setProperty('--accent-color', settings.secondaryColor);
         root.style.setProperty('--font-family', settings.font);
