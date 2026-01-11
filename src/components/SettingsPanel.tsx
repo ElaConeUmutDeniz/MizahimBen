@@ -64,7 +64,7 @@ const [selectedSourceUrl, setSelectedSourceUrl] = useState('');
 
         if (key === 'jokeSourceUrl') {
             const params = new URLSearchParams(window.location.search);
-            params.set('s', selectedSourceURL);
+            params.set('s', selectedSourceUrl);
             window.history.replaceState(
                 {},
                 '',
