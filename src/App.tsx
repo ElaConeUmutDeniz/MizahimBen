@@ -108,23 +108,7 @@ const MainContent: React.FC = () => {
                                 >
                                     {t('newsletter')}
                                 </button>
-                        <script src="https://giscus.app/client.js"
-        data-repo="ElaConeUmutDeniz/MizahimBen"
-        data-repo-id="R_kgDOO076iA"
-        data-category="[KATEGORİ İSMİ GİRİN]"
-        data-category-id="[KATEGORİ ID GİRİN]"
-        data-mapping="specific"
-        data-term="[TAKIM GİRİN]"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="noborder_dark"
-        data-lang="tr"
-        crossorigin="anonymous"
-        async>
-</script>
-                            )}
+                         )}
                         </div>
                         <div
                           className={`transition-all duration-500 ease-in-out overflow-hidden ${isNewsletterFormVisible ? 'max-h-[1000px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}
