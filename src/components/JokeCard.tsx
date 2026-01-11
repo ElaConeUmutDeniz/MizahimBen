@@ -4,6 +4,7 @@ import { useSettings } from '../hooks/useSettings';
 import { useTranslation } from '../lib/i18n';
 import LoadingSpinner from './LoadingSpinner';
 import { DiscussionEmbed } from 'disqus-react';
+import PropTypes from 'prop-types'; // Eğer gerekliyse
 interface JokeCardProps {
     jokeUrl: string;
 }
