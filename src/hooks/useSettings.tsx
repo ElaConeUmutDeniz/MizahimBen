@@ -16,35 +16,34 @@ const defaultSettings: Settings = {
 const getInitialLanguage = (): Language => {
     const params = new URLSearchParams(window.location.search);
     const langFromUrl = params.get('lang');
-    if (langFromUrl && (SupportedLanguages as readonly string[]).includes(langFromUrl)) {
+
+    if (langFromUrl && SupportedLanguages.includes(langFromUrl as Language)) {
         return langFromUrl as Language;
     }
 
     const browserLang = navigator.language.split('-')[0];
-    if ((SupportedLanguages as readonly string[]).includes(browserLang)) {
+    if (SupportedLanguages.includes(browserLang as Language)) {
         return browserLang as Language;
     }
 
     return 'en';
 };
 
-const getInitialJokeSource = (): string => {
-    const params = new URLSearchParams(window.location.search);
-    const sourceFromUrl = params.get('s'); // ?lang=tr&s=...
-
-    if (sourceFromUrl) {
-        return sourceFromUrl;
-    }
-
+const getStoredSettings = (): Partial<Settings> => {
     try {
         const stored = localStorage.getItem('mizahimben-settings');
-        if (stored) {
-            const parsed = JSON.parse(stored);
-            if (parsed.jokeSourceUrl) {
-                return parsed.jokeSourceUrl;
-            }
-        }
-    } catch {}
+        return stored ? JSON.parse(stored) : {};
+    } catch {
+        return {};
+    }
+};
+
+const getInitialJokeSource = (stored: Partial<Settings>): string => {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('s');
+
+    if (fromUrl) return fromUrl;
+    if (stored.jokeSourceUrl) return stored.jokeSourceUrl;
 
     return DEFAULT_JOKE_SOURCE_URL;
 };
@@ -58,11 +57,16 @@ interface SettingsContextType {
 export const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [settings, setSettings] = useState<Settings>(() => ({
-        ...defaultSettings,
-        language: getInitialLanguage(),
-        jokeSourceUrl: getInitialJokeSource(), // 🔥 KİLİT NOKTA
-    }));
+    const [settings, setSettings] = useState<Settings>(() => {
+        const stored = getStoredSettings();
+
+        return {
+            ...defaultSettings,
+            ...stored, // ✅ theme, font, color vs BURADAN
+            language: getInitialLanguage(),
+            jokeSourceUrl: getInitialJokeSource(stored),
+        };
+    });
 
     useEffect(() => {
         localStorage.setItem('mizahimben-settings', JSON.stringify(settings));
@@ -88,6 +92,8 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }
 
 export const useSettings = () => {
     const ctx = React.useContext(SettingsContext);
-    if (!ctx) throw new Error('useSettings must be used within SettingsProvider');
+    if (!ctx) {
+        throw new Error('useSettings must be used within SettingsProvider');
+    }
     return ctx;
 };
