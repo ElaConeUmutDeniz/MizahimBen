@@ -28,16 +28,18 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
         getAllowedSources().then(setAllowedSources).catch(console.error);
     }, []);
 
+    // ?s=sourceKey  --> jokeSourceUrl
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const sourceFromUrl = params.get('s');
-        if (sourceFromUrl) {
+        const sourceKey = params.get('s');
+
+        if (sourceKey && allowedSources[sourceKey]) {
             setLocalSettings(prev => ({
                 ...prev,
-                jokeSourceUrl: sourceFromUrl,
+                jokeSourceUrl: allowedSources[sourceKey],
             }));
         }
-    }, []);
+    }, [allowedSources]);
 
     const handleSave = async () => {
         saveSettings(localSettings);
@@ -62,13 +64,19 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
         setLocalSettings(prev => ({ ...prev, [key]: value }));
 
         if (key === 'jokeSourceUrl') {
-            const params = new URLSearchParams(window.location.search);
-            params.set('s', String(value));
-            window.history.replaceState(
-                {},
-                '',
-                `${window.location.pathname}?${params.toString()}`
-            );
+            const entry = Object.entries(allowedSources)
+                .find(([, url]) => url === value);
+
+            if (entry) {
+                const [sourceKey] = entry;
+                const params = new URLSearchParams(window.location.search);
+                params.set('s', sourceKey);
+                window.history.replaceState(
+                    {},
+                    '',
+                    `${window.location.pathname}?${params.toString()}`
+                );
+            }
         }
     };
 
@@ -87,6 +95,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
 
                     <div className="flex-grow overflow-y-auto pr-2 space-y-6">
 
+                        {/* Theme */}
                         <div>
                             <label className="font-semibold">{t('theme')}</label>
                             <div className="mt-2 flex items-center bg-[var(--secondary-bg)] rounded-lg p-1">
@@ -115,6 +124,30 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </div>
                         </div>
 
+                        {/* Secondary Color */}
+                        <div>
+                            <label htmlFor="color-picker" className="font-semibold">
+                                {t('secondaryColor')}
+                            </label>
+                            <div className="mt-2 flex items-center space-x-3">
+                                <input
+                                    type="color"
+                                    id="color-picker"
+                                    value={localSettings.secondaryColor}
+                                    onChange={e =>
+                                        handleSettingChange('secondaryColor', e.target.value)
+                                    }
+                                    className="w-12 h-12 p-1 border-none rounded-lg cursor-pointer bg-transparent"
+                                />
+                                <div className="flex-grow p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]">
+                                    <span className="font-mono text-sm">
+                                        {localSettings.secondaryColor}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Font */}
                         <div className="form-group">
                             <label htmlFor="font-select" className="font-semibold">
                                 {t('font')}
@@ -135,6 +168,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </select>
                         </div>
 
+                        {/* Language */}
                         <div className="form-group">
                             <label htmlFor="lang-select" className="font-semibold">
                                 {t('language')}
@@ -158,6 +192,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </select>
                         </div>
 
+                        {/* Joke Source */}
                         <div className="form-group">
                             <label htmlFor="source-select" className="font-semibold">
                                 {t('jokeSource')}
