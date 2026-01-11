@@ -72,39 +72,17 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
 
 
 
-<form
-  name="comments"
-  method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field" netlify
->
-  <input type="hidden" name="form-name" value="comments" />
-
-  {/* bot tuzağı */}
-  <input type="hidden" name="bot-field" />
-
-  <input
-    type="text"
-    name="name"
-    placeholder="Adınız"
-    required
-  />
-
-  <textarea
-    name="comment"
-    placeholder="Yorumunuz"
-    required
-  />
-
-  <input
-    type="hidden"
-    name="slug"
-    value={slug}
-  />
-
-  <button type="submit">Gönder</button>
+<form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
 </form>
-
 
 
                 
