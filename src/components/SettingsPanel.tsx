@@ -63,12 +63,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
 
         if (key === 'jokeSourceUrl') {
             const params = new URLSearchParams(window.location.search);
-            params.set('so', {e =>
-                                    handleSettingChange(
-                                        'jokeSourceUrl',
-                                        e.target.value
-                                    )
-                                });
+            params.set('s', String(value));
             window.history.replaceState(
                 {},
                 '',
