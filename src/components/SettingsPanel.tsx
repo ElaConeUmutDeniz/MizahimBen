@@ -19,6 +19,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
     const [localSettings, setLocalSettings] = useState<Settings>(settings);
     const [allowedSources, setAllowedSources] = useState<AllowedSources>({});
     const [showSuccess, setShowSuccess] = useState(false);
+const [selectedSourceUrl, setSelectedSourceUrl] = useState('');
 
     useEffect(() => {
         setLocalSettings(settings);
@@ -63,7 +64,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
 
         if (key === 'jokeSourceUrl') {
             const params = new URLSearchParams(window.location.search);
-            params.set('s', String(value));
+            params.set('s', selectedSourceURL);
             window.history.replaceState(
                 {},
                 '',
@@ -165,12 +166,14 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             <select
                                 id="source-select"
                                 value={localSettings.jokeSourceUrl}
-                                onChange={e =>
-                                    handleSettingChange(
-                                        'jokeSourceUrl',
-                                        e.target.value
-                                    )
-                                }
+                                onChange={(e) => {
+    const value = e.target.value;   // 👈 dışarı alındı
+
+    setSelectedSourceUrl(value);    // 👈 dış state’e aktarıldı
+
+    handleSettingChange('jokeSourceUrl', value);
+}}
+
                                 className="w-full mt-2 p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]"
                             >
                                 <option value={DEFAULT_JOKE_SOURCE_URL}>
