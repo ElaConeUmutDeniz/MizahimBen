@@ -69,18 +69,7 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
                 >
                     {t('translate')}
                 </a>
-                <DiscussionEmbed
-    shortname='mizahimben'
-    config={
-        {
-            url: this.props.article.url,
-            identifier: this.props.article.id,
-            title: this.props.article.title,
-            language: 'tr_TR' //e.g. for Traditional Chinese (Taiwan)
-        }
-    }
-/>
-            </div>
+   </div>
         </div>
     );
 };
