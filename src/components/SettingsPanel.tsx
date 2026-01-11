@@ -16,31 +16,34 @@ interface SettingsPanelProps {
 const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
     const { settings, saveSettings } = useSettings();
     const { t, languageName, supportedLanguages } = useTranslation();
+
     const [localSettings, setLocalSettings] = useState<Settings>(settings);
     const [allowedSources, setAllowedSources] = useState<AllowedSources>({});
     const [showSuccess, setShowSuccess] = useState(false);
 
-    useEffect(() => {
-        setLocalSettings(settings);
-    }, [settings, isOpen]);
-
+    /* allowed sources yükle */
     useEffect(() => {
         getAllowedSources().then(setAllowedSources).catch(console.error);
     }, []);
 
+    /* settings + URL senkronizasyonu (URL ÖNCELİKLİ) */
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const sourceFromUrl = params.get('s');
+
         if (sourceFromUrl) {
-            setLocalSettings(prev => ({
-                ...prev,
+            setLocalSettings({
+                ...settings,
                 jokeSourceUrl: sourceFromUrl,
-            }));
+            });
+        } else {
+            setLocalSettings(settings);
         }
-    }, []);
+    }, [settings, isOpen]);
 
     const handleSave = async () => {
         saveSettings(localSettings);
+
         if (localSettings.notificationsEnabled) {
             const permissionGranted = await requestNotificationPermission();
             if (permissionGranted) {
@@ -51,6 +54,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                 );
             }
         }
+
         setShowSuccess(true);
         setTimeout(() => {
             setShowSuccess(false);
@@ -58,14 +62,18 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
         }, 1500);
     };
 
-    const handleSettingChange = <K extends keyof Settings,>(key: K, value: Settings[K]) => {
+    const handleSettingChange = <K extends keyof Settings>(
+        key: K,
+        value: Settings[K]
+    ) => {
         setLocalSettings(prev => ({ ...prev, [key]: value }));
 
         if (key === 'jokeSourceUrl') {
             const params = new URLSearchParams(window.location.search);
             params.set('s', String(value));
+
             window.history.replaceState(
-                {},
+                null,
                 '',
                 `${window.location.pathname}?${params.toString()}`
             );
@@ -77,7 +85,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={onClose}>
             <div
-                className="fixed top-0 right-0 h-full w-full max-w-sm bg-[var(--primary-bg)] text-[var(--primary-text)] shadow-2xl transform transition-transform duration-300 ease-in-out"
+                className="fixed top-0 right-0 h-full w-full max-w-sm bg-[var(--primary-bg)] text-[var(--primary-text)] shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="p-6 h-full flex flex-col">
@@ -87,45 +95,34 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
 
                     <div className="flex-grow overflow-y-auto pr-2 space-y-6">
 
+                        {/* THEME */}
                         <div>
                             <label className="font-semibold">{t('theme')}</label>
-                            <div className="mt-2 flex items-center bg-[var(--secondary-bg)] rounded-lg p-1">
+                            <div className="mt-2 flex bg-[var(--secondary-bg)] rounded-lg p-1">
                                 <button
                                     onClick={() => handleSettingChange('theme', 'light')}
-                                    className={`w-1/2 py-2 rounded-md ${
-                                        localSettings.theme === 'light'
-                                            ? 'bg-[var(--primary-bg)] shadow'
-                                            : ''
-                                    }`}
+                                    className={`w-1/2 py-2 rounded-md ${localSettings.theme === 'light' ? 'bg-[var(--primary-bg)] shadow' : ''}`}
                                 >
-                                    <SunIcon />
-                                    <span>{t('light')}</span>
+                                    <SunIcon /> {t('light')}
                                 </button>
                                 <button
                                     onClick={() => handleSettingChange('theme', 'dark')}
-                                    className={`w-1/2 py-2 rounded-md ${
-                                        localSettings.theme === 'dark'
-                                            ? 'bg-gray-700 text-white shadow'
-                                            : ''
-                                    }`}
+                                    className={`w-1/2 py-2 rounded-md ${localSettings.theme === 'dark' ? 'bg-gray-700 text-white shadow' : ''}`}
                                 >
-                                    <MoonIcon />
-                                    <span>{t('dark')}</span>
+                                    <MoonIcon /> {t('dark')}
                                 </button>
                             </div>
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="font-select" className="font-semibold">
-                                {t('font')}
-                            </label>
+                        {/* FONT */}
+                        <div>
+                            <label className="font-semibold">{t('font')}</label>
                             <select
-                                id="font-select"
                                 value={localSettings.font}
-                                onChange={e =>
+                                onChange={(e) =>
                                     handleSettingChange('font', e.target.value)
                                 }
-                                className="w-full mt-2 p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]"
+                                className="w-full mt-2 p-2 rounded-lg border bg-[var(--secondary-bg)]"
                             >
                                 {FONT_OPTIONS.map(font => (
                                     <option key={font.value} value={font.value}>
@@ -135,20 +132,15 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </select>
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="lang-select" className="font-semibold">
-                                {t('language')}
-                            </label>
+                        {/* LANGUAGE */}
+                        <div>
+                            <label className="font-semibold">{t('language')}</label>
                             <select
-                                id="lang-select"
                                 value={localSettings.language}
-                                onChange={e =>
-                                    handleSettingChange(
-                                        'language',
-                                        e.target.value as Language
-                                    )
+                                onChange={(e) =>
+                                    handleSettingChange('language', e.target.value as Language)
                                 }
-                                className="w-full mt-2 p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]"
+                                className="w-full mt-2 p-2 rounded-lg border bg-[var(--secondary-bg)]"
                             >
                                 {supportedLanguages.map(lang => (
                                     <option key={lang} value={lang}>
@@ -158,24 +150,20 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </select>
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="source-select" className="font-semibold">
-                                {t('jokeSource')}
-                            </label>
+                        {/* JOKE SOURCE */}
+                        <div>
+                            <label className="font-semibold">{t('jokeSource')}</label>
                             <select
-                                id="source-select"
                                 value={localSettings.jokeSourceUrl}
-                                onChange={e =>
-                                    handleSettingChange(
-                                        'jokeSourceUrl',
-                                        e.target.value
-                                    )
+                                onChange={(e) =>
+                                    handleSettingChange('jokeSourceUrl', e.target.value)
                                 }
-                                className="w-full mt-2 p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]"
+                                className="w-full mt-2 p-2 rounded-lg border bg-[var(--secondary-bg)]"
                             >
                                 <option value={DEFAULT_JOKE_SOURCE_URL}>
                                     Mizahım Ben (Varsayılan)
                                 </option>
+
                                 {Object.entries(allowedSources).map(([name, url]) => (
                                     <option key={url} value={url}>
                                         {name}
@@ -185,14 +173,12 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                         </div>
                     </div>
 
-                    <div className="flex-shrink-0 pt-4">
-                        <button
-                            onClick={handleSave}
-                            className="w-full py-3 text-white font-bold rounded-lg transition-colors bg-[color:var(--accent-color)] hover:opacity-90"
-                        >
-                            {showSuccess ? t('settingsSaved') : t('saveSettings')}
-                        </button>
-                    </div>
+                    <button
+                        onClick={handleSave}
+                        className="w-full py-3 mt-4 text-white font-bold rounded-lg bg-[color:var(--accent-color)]"
+                    >
+                        {showSuccess ? t('settingsSaved') : t('saveSettings')}
+                    </button>
                 </div>
             </div>
         </div>
