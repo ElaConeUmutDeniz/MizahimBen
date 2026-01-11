@@ -11,7 +11,7 @@ const defaultSettings: Settings = {
     secondaryColor: '#3b82f6',
     font: FONT_OPTIONS[0].value,
     language: 'tr', // This is the value that was causing the problem. It will be overridden.
-    jokeSourceUrl: DEFAULT_JOKE_SOURCE_URL,
+    // jokeSourceUrl: DEFAULT_JOKE_SOURCE_URL,
     notificationsEnabled: false,
     notificationTime: '09:00',
 };
