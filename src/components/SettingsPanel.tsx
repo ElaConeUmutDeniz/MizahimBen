@@ -63,13 +63,23 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
 
         if (key === 'jokeSourceUrl') {
             const params = new URLSearchParams(window.location.search);
-            params.set('s', localSettings.jokeSourceUrl);
-            window.history.replaceState(
-                {},
-                '',
-                `${window.location.pathname}?${params.toString()}`
-            );
-        }
+
+        const entry = Object.entries(allowedSources)
+  .find(([, url]) => url === value);
+
+if (entry) {
+  const sourceKey = entry[0]; // 👈 AD (key)
+
+  const params = new URLSearchParams(window.location.search);
+  params.set('s', sourceKey);
+
+  window.history.replaceState(
+    {},
+    '',
+    `${window.location.pathname}?${params.toString()}`
+  );
+}
+
     };
 
     if (!isOpen) return null;
