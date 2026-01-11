@@ -112,10 +112,10 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                                     <MoonIcon /> {t('dark')}
                                 </button>
                                 <button
-                                    onClick={() => handleSettingChange('theme', 'dark')}
-                                    className={`w-1/2 py-2 rounded-md ${localSettings.theme === 'dark' ? 'bg-gray-700 text-white shadow' : ''}`}
+                                    onClick={() => handleSettingChange('theme', 'oled')}
+                                    className={`w-1/2 py-2 rounded-md ${localSettings.theme === 'oled' ? 'bg-gray-700 text-white shadow' : ''}`}
                                 >
-                                    <MoonIcon /> {t('dark')}
+                                    <MoonIcon /> OLED
                                 </button>
                             </div>
                         </div>
