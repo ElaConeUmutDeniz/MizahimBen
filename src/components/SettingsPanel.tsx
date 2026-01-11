@@ -114,6 +114,54 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
                             </div>
                         </div>
 
+
+
+                        {/* Secondary Color */}
+
+
+                        <div>
+
+
+                            <label htmlFor="color-picker" className="font-semibold">{t('secondaryColor')}</label>
+
+
+                            <div className="mt-2 flex items-center space-x-3">
+
+
+                                <input
+
+
+                                    type="color"
+
+
+                                    id="color-picker"
+
+
+                                    value={localSettings.secondaryColor}
+
+
+                                    onChange={e => handleSettingChange('secondaryColor', e.target.value)}
+
+
+                                    className="w-12 h-12 p-1 border-none rounded-lg cursor-pointer bg-transparent"
+
+
+                                />
+
+
+                                <div className="flex-grow p-2 rounded-lg border border-[var(--border-color)] bg-[var(--secondary-bg)]">
+
+
+                                    <span className="font-mono text-sm">{localSettings.secondaryColor}</span>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
                         {/* FONT */}
                         <div>
                             <label className="font-semibold">{t('font')}</label>
