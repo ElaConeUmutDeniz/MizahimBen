@@ -69,6 +69,24 @@ const JokeCard: React.FC<JokeCardProps> = ({ jokeUrl }) => {
                 >
                     {t('translate')}
                 </a>
+
+import { DiscussionEmbed } from 'disqus-react';
+
+<DiscussionEmbed
+    shortname='mizahimben'
+    config={
+        {
+            url: article.url,
+            identifier: article.id,
+            title: article.title,
+            language: 'tr.TR' //e.g. for Traditional Chinese (Taiwan)
+        }
+    }
+/>
+
+
+
+                
    </div>
         </div>
     );
