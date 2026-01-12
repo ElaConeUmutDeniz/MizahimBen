@@ -1,7 +1,6 @@
 import { useContext, useCallback } from 'react';
 import { SettingsContext } from '../hooks/useSettings';
 import { Language, SupportedLanguages } from '../types';
-
 const translations: Record<Language, Record<string, string>> = {
   "tr": {
     "siteTitle": "Mizahım Ben",
@@ -58,7 +57,7 @@ const translations: Record<Language, Record<string, string>> = {
     "helpStep3Title": "Adım 3: Kaynağınızı Ekleyin",
     "helpStep3Desc": "Oluşturduğunuz JSON dosyasını da internet üzerinden erişilebilir bir yere(pastee.dev ya da github gist servislerini kullanabilirsiniz) yükleyin.",
     "helpStep4Title": "Adım 4: Kaynağınızı Listeletmek (İsteğe Bağlı)",
-    "helpStep4Desc": "Eğer mizah kaynağınızın herkesin görebileceği \"Mizah Kaynağı\" listesinde yer almasını istiyorsanız, bize e-posta yoluyla ulaşıp kaynak linkinizi gönderebilirsiniz. Kaynağınız incelendikten sonra uygun görülürse resmi listeye eklenecektir. \n *İpuçları*: Her mizah kaynağının kendine özgü linki vardır. İster direkt olarak, ister bit.ly gibi bir kısaltma servisiyle mizah kaynağınızı paylaşabilirsiniz.  Eğer yazdığımız adımlar anlaşılmıyorsa kendi yapay zekamıza bu adımları atarak 'mala anlatır gibi' anlatmasını isteyebilirsiniz. ",
+    "helpStep4Desc": "Eğer mizah kaynağınızın herkesin görebileceği \"Mizah Kaynağı\" listesinde yer almasını istiyorsanız, bize e-posta yoluyla ulaşıp kaynak linkinizi gönderebilirsiniz. Kaynağınız incelendikten sonra uygun görülürse resmi listeye eklenecektir.",
     "helpContactUs": "Herhangi bir sorunuz olursa, iletişim e-posta adresimizden bize ulaşmaktan çekinmeyin.",
     "Install1": "Mizahım Ben Android Uygulaması!",
     "Install2": "Mizahım Ben uygulaması ile tek tıkla mizahları takip edebilir ve mizah paylaşıldığında anında bildirim alabilirsiniz!",
@@ -71,8 +70,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Yardım",
     "indir": "İndir",
     "newsletter": "E-Posta sayesinde bizden güncel bildirimler al",
-    "neverShowButton": "Bu butonu hiçbir zaman gösterme (önbellek sıfırlanana kadar)"
+    "neverShowButton": "Bu butonu hiçbir zaman gösterme (önbellek sıfırlanana kadar)",
+    "notes": "*İpuçları*: Her mizah kaynağının kendine özgü linki vardır. İster direkt olarak, ister bit.ly gibi bir kısaltma servisiyle mizah kaynağınızı paylaşabilirsiniz. Eğer yazdığımız adımlar anlaşılmıyorsa kendi yapay zekamıza bu adımları atarak 'mala anlatır gibi' anlatmasını isteyebilirsiniz."
   },
+
   "en": {
     "siteTitle": "Mizahim Ben - I'm Humor",
     "siteDescription": "Just good humor, just a civilized sense of laughter. - See the latest humor from different sources. AI-included!",
@@ -141,8 +142,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Help",
     "indir": "Download",
     "newsletter": "Get the latest notifications from us via E-mail",
-    "neverShowButton": "Never show this button again (until cache is cleared)"
+    "neverShowButton": "Never show this button again (until cache is cleared)",
+    "notes": "*Tips*: Every humor source has its own unique link. You can share your humor source either directly or using a shortening service like bit.ly. If our written steps are not clear, you can paste these steps to our own AI and ask it to explain them 'like explaining to a child'."
   },
+
   "uz": {
     "siteTitle": "Mizahim Ben - Men Hazilman ",
     "currentJokes": "Joriy Hazillar",
@@ -192,8 +195,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Yordam",
     "indir": "Yuklab Olish",
     "newsletter": "Bizdan eng so'nggi bildirishnomalarni elektron pochta orqali oling (Faqat ingliz va turk tillarida)",
-    "neverShowButton": "Bu tugmani boshqa hech qachon ko'rsatma (kesh tozalanmaguncha)"
+    "neverShowButton": "Bu tugmani boshqa hech qachon ko'rsatma (kesh tozalanmaguncha)",
+    "notes": "*Maslahatlar*: Har bir hazil manbasining o‘ziga xos havolasi mavjud. Hazil manbangizni to‘g‘ridan-to‘g‘ri yoki bit.ly kabi qisqartirish xizmatlari orqali baham ko‘rishingiz mumkin. Agar yozgan qadamlarimiz tushunarsiz bo‘lsa, ushbu qadamlarni o‘z sun’iy intellektimizga yuborib, 'bolaga tushuntirgandek' tushuntirishini so‘rashingiz mumkin."
   },
+
   "az": {
     "siteTitle": "Mizahim Ben- Mən Zarafatam",
     "currentJokes": "Cari Zarafatlar",
@@ -243,110 +248,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Kömək",
     "indir": "Yüklə",
     "newsletter": "Bizdən ən son bildirişləri e-poçt vasitəsilə alın (Yalnız ingilis və türk dillərində)",
-    "neverShowButton": "Bu düyməni bir daha heç vaxt göstərmə (keş təmizlənənə qədər)"
+    "neverShowButton": "Bu düyməni bir daha heç vaxt göstərmə (keş təmizlənənə qədər)",
+    "notes": "*Məsləhətlər*: Hər zarafat mənbəyinin özünəməxsus linki var. Zarafat mənbəyinizi birbaşa və ya bit.ly kimi qısaldıcı xidmətlərlə paylaşa bilərsiniz. Əgər yazdığımız addımlar anlaşılmırsa, bu addımları öz süni intellektimizə göndərib 'uşağa izah edər kimi' izah etməsini xahiş edə bilərsiniz."
   },
-  "de": {
-    "siteTitle": "Mizahim Ben - Ich bin Humor",
-    "currentJokes": "Aktuelle Witze",
-    "oldJokes": "Ankündigungen / Nachrichten",
-    "settings": "Einstellungen",
-    "aiAssistant": "KI-Assistent",
-    "help": "Hilfe",
-    "home": "Startseite",
-    "theme": "Thema",
-    "light": "Hell",
-    "dark": "Dunkel",
-    "language": "Sprache",
-    "copyright": "© 2025 Mizahım Ben. Alle Rechte vorbehalten. | Von Benutzern eingereichte Inhalte sind Eigentum ihrer jeweiligen Inhaber.",
-    "geminiDisclaimer": "Angetrieben von Gemini",
-    "contact": "Unsere E-Mail für Kontakt und um Ihre Witzquelle hinzuzufügen",
-    "helpTitle": "Wie Sie Ihre eigene Humorquelle erstellen",
-    "aiWelcome": "Ich bin der Gemini-basierte KI-Assistent von Mizahım Ben. Wie kann ich Ihnen helfen?",
-    "translate": "Übersetzen",
-    "errorTitle": "Fehler!",
-    "errorInstruction": "Sie können in den Entwicklertools Ihres Browsers auf die Registerkarte 'Konsole' gehen und die dortigen Meldungen an unsere unten stehende E-Mail-Adresse senden.",
-    "errorAIAssistant": "Bei der Kommunikation mit der KI ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-    "helpIntro": "Mizahım Ben ist eine flexible Seite, die Humor aus verschiedenen Quellen anzeigen kann. Sie können die folgenden Schritte ausführen, um Ihre eigene Humorsammlung zu erstellen und zur Seite hinzuzufügen.",
-    "helpStep1Title": "Schritt 1: Schreiben Sie Ihre Witze",
-    "helpStep1Desc1": "Schreiben Sie jeden Ihrer Witze in eine separate Markdown-Datei (.md). Mit Markdown können Sie Ihrem Text ganz einfach Stile und Bilder hinzufügen. Zum Beispiel für Überschriften verwenden Sie",
-    "helpStep1Desc2": "für Bilder verwenden Sie",
-    "helpStep1Desc3": "für Listen verwenden Sie",
-    "helpStep1Desc4": "oder",
-    "helpStep1Desc5": "Sie müssen diese Dateien an einen öffentlich zugänglichen Ort im Internet hochladen (z. B. GitHub Gist, pastee.dev oder Ihren eigenen Webserver).",
-    "helpStep2Title": "Schritt 2: Erstellen Sie die Quell-JSON-Datei",
-    "helpStep2Desc1": "Sie müssen eine JSON-Datei (mit der Erweiterung .json) erstellen, die die Links zu all Ihren Witzen enthält. Diese Datei muss zwei Schlüssel enthalten:",
-    "helpStep2Desc2": "(die auf der Hauptseite erscheinen) und",
-    "helpStep2Desc3": "(die im Archiv erscheinen). Die Werte für diese Schlüssel müssen Arrays sein, die die Links zu Ihren Markdown-Dateien enthalten. Wenn Sie auf den Link zur Markdown-Datei klicken, sollte nur der Inhalt der Markdown-Datei sichtbar sein.",
-    "helpExampleFormat": "Hier ist ein Beispielformat:",
-    "helpStep3Title": "Schritt 3: Fügen Sie Ihre Quelle hinzu",
-    "helpStep3Desc": "Laden Sie die von Ihnen erstellte JSON-Datei ebenfalls an einen öffentlich zugänglichen Ort im Internet hoch (Sie können Dienste wie pastee.dev oder GitHub Gist verwenden).",
-    "helpStep4Title": "Schritt 4: Auflisten Ihrer Quelle (Optional)",
-    "helpStep4Desc": "Wenn Sie möchten, dass Ihre Witzquelle in die öffentliche \"Witzquelle\"-Liste aufgenommen wird, können Sie uns per E-Mail kontaktieren und Ihren Quellenlink senden. Nachdem Ihre Quelle überprüft wurde, wird sie der offiziellen Liste hinzugefügt, wenn sie als angemessen erachtet wird.",
-    "helpContactUs": "Wenn Sie Fragen haben, zögern Sie nicht, uns unter unserer Kontakt-E-Mail-Adresse zu kontaktieren.",
-    "Install1": "Mizahım Ben Android-App!",
-    "Install2": "Mit der Mizahım Ben-App können Sie Witze mit einem einzigen Klick verfolgen und sofortige Benachrichtigungen erhalten, wenn ein neuer Witz geteilt wird!",
-    "Install3": "Herunterladen",
-    "pp1": "Datenschutzrichtlinie",
-    "pp2": "mizahimben.com sammelt keine Ihrer persönlichen Daten und setzt keine Cookies. Der Site-Cache wird lokal auf Ihrem Gerät gespeichert.\n\nWir nutzen jedoch Dienste von Drittanbietern, die für unseren Betrieb unerlässlich sind:\n\nGoogle AdSense: Um unsere Website zu finanzieren, verwenden Google und seine Partner Cookies, um personalisierte Anzeigen basierend auf Ihrem Besuch auf dieser und anderen Websites zu schalten. Sie können dies jederzeit in den Google-Anzeigeneinstellungen deaktivieren.\n\nGoogle Gemini API: Unsere KI-Funktionen werden von der Gemini-API von Google unterstützt. Die Nutzung dieser Funktionen unterliegt der Datenschutzerklärung von Google.\n\nUnser Projekt ist Open Source. Bei Fragen kontaktieren Sie uns über unsere E-Mail-Adresse in der Fußzeile.",
-    "guncel": "Aktuell",
-    "bildiriler": "Nachrichten",
-    "yapayzeka": "KI",
-    "yardim": "Hilfe",
-    "indir": "Herunterladen",
-    "newsletter": "Erhalten Sie die neuesten Benachrichtigungen von uns per E-Mail (Nur auf Englisch und Türkisch)",
-    "neverShowButton": "Diesen Button nie wieder anzeigen (bis der Cache geleert wird)"
-  },
-  "fr": {
-    "siteTitle": "Mizahim Ben - Je suis l'Humour",
-    "currentJokes": "Blagues actuelles",
-    "oldJokes": "Annonces / Nouvelles",
-    "settings": "Paramètres",
-    "aiAssistant": "Assistant IA",
-    "help": "Aide",
-    "home": "Accueil",
-    "theme": "Thème",
-    "light": "Clair",
-    "dark": "Sombre",
-    "language": "Langue",
-    "copyright": "© 2025 Mizahım Ben. Tous droits réservés. | Le contenu soumis par les utilisateurs est la propriété de leurs propriétaires respectifs.",
-    "geminiDisclaimer": "Propulsé par Gemini",
-    "contact": "Notre e-mail pour nous contacter et faire ajouter votre source de blagues",
-    "helpTitle": "Comment créer votre propre source d'humour",
-    "aiWelcome": "Je suis l'assistant IA de Mizahım Ben, basé sur Gemini. Comment puis-je vous aider ?",
-    "translate": "Traduire",
-    "errorTitle": "Erreur !",
-    "errorInstruction": "Vous pouvez accéder à l'onglet Console des outils de développement de votre navigateur et envoyer les messages qui s'y trouvent à notre adresse e-mail ci-dessous.",
-    "errorAIAssistant": "Une erreur est survenue lors de la communication avec l'IA. Veuillez réessayer plus tard.",
-    "helpIntro": "Mizahım Ben est un site flexible qui peut afficher de l'humour provenant de différentes sources. Vous pouvez suivre les étapes ci-dessous pour créer votre propre collection d'humour et l'ajouter au site.",
-    "helpStep1Title": "Étape 1 : Écrivez vos blagues",
-    "helpStep1Desc1": "Écrivez chacune de vos blagues dans un fichier Markdown (.md) distinct. Markdown vous permet d'ajouter facilement des styles et des images à votre texte. Par exemple, pour les titres, utilisez",
-    "helpStep1Desc2": "pour les images, utilisez",
-    "helpStep1Desc3": "pour les listes, utilisez",
-    "helpStep1Desc4": "ou",
-    "helpStep1Desc5": "Vous devez télécharger ces fichiers dans un emplacement accessible au public sur Internet (par exemple, GitHub Gist, pastee.dev ou votre propre serveur Web).",
-    "helpStep2Title": "Étape 2 : Créez le fichier JSON source",
-    "helpStep2Desc1": "Vous devez créer un fichier JSON (avec une extension .json) qui contient les liens vers toutes vos blagues. Ce fichier doit inclure deux clés :",
-    "helpStep2Desc2": "(qui apparaîtront sur la page principale) et",
-    "helpStep2Desc3": "(qui apparaîtront dans les archives). Les valeurs de ces clés doivent être des tableaux contenant les liens vers vos fichiers Markdown. Lorsque vous cliquez sur le lien vers le fichier Markdown, seul le contenu du fichier markdown doit être visible.",
-    "helpExampleFormat": "Voici un exemple de format :",
-    "helpStep3Title": "Étape 3 : Ajoutez votre source",
-    "helpStep3Desc": "Téléchargez également le fichier JSON que vous avez créé dans un emplacement accessible au public sur Internet (vous pouvez utiliser des services comme pastee.dev ou GitHub Gist).",
-    "helpStep4Title": "Étape 4 : Lister votre source (Facultatif)",
-    "helpStep4Desc": "Si vous souhaitez que votre source de blagues soit incluse dans la liste publique \"Source de blagues\", vous pouvez nous contacter par e-mail et envoyer le lien de votre source. Après examen de votre source, elle sera ajoutée à la liste officielle si elle est jugée appropriée.",
-    "helpContactUs": "Si vous avez des questions, n'hésitez pas à nous contacter à notre adresse e-mail de contact.",
-    "Install1": "Application Android Mizahım Ben !",
-    "Install2": "Avec l'application Mizahım Ben, vous pouvez suivre les blagues en un seul clic et recevoir des notifications instantanées lorsqu'une nouvelle blague est partagée !",
-    "Install3": "Télécharger",
-    "pp1": "Politique de Confidentialité",
-    "pp2": "mizahimben.com ne collecte pas vos données personnelles et n'installe pas de cookies. Le cache du site est stocké localement sur votre appareil.\n\nCependant, nous utilisons des services tiers qui sont essentiels à notre fonctionnement :\n\nGoogle AdSense : Pour financer notre site, Google et ses partenaires utilisent des cookies pour diffuser des annonces personnalisées en fonction de votre visite sur ce site et d'autres. Vous pouvez désactiver cette option à tout moment en visitant les Paramètres des annonces Google.\n\nGoogle Gemini API : Nos fonctionnalités d'IA sont alimentées par l'API Gemini de Google. L'utilisation de ces fonctionnalités est soumise à la Politique de confidentialité de Google.\n\nNotre projet est open source. Pour toute question, contactez-nous via notre e-mail indiqué dans le pied de page.",
-    "guncel": "Actuel",
-    "bildiriler": "Nouvelles",
-    "yapayzeka": "IA",
-    "yardim": "Aide",
-    "indir": "Télécharger",
-    "newsletter": "Recevez les dernières notifications de notre part par e-mail (Uniquement en anglais et en turc)",
-    "neverShowButton": "Ne plus jamais afficher ce bouton (jusqu'à ce que le cache soit vidé)"
-  },
+
   "zh": {
     "siteTitle": "Mizahim Ben - 我是幽默",
     "currentJokes": "当前笑话",
@@ -396,8 +301,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "帮助",
     "indir": "下载",
     "newsletter": "通过电子邮件接收我们的最新通知 (仅提供英语和土耳其语)",
-    "neverShowButton": "不再显示此按钮 (直到清除缓存)"
+    "neverShowButton": "不再显示此按钮 (直到清除缓存)",
+    "notes": "*小贴士*：每个幽默来源都有自己唯一的链接。您可以直接分享幽默来源，或者使用 bit.ly 之类的短链接服务。如果我们写的步骤看不懂，您可以将这些步骤发给我们自己的人工智能，让它用“给小孩子讲故事”的方式来解释。"
   },
+
   "ru": {
     "siteTitle": "Mizahim Ben - Я Юмор",
     "currentJokes": "Текущие шутки",
@@ -447,8 +354,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Помощь",
     "indir": "Скачать",
     "newsletter": "Получайте последние уведомления от нас по электронной почте (Только на английском и турецком языках)",
-    "neverShowButton": "Больше никогда не показывать эту кнопку (пока не будет очищен кеш)"
+    "neverShowButton": "Больше никогда не показывать эту кнопку (пока не будет очищен кеш)",
+    "notes": "*Советы*: У каждого источника юмора есть своя уникальная ссылка. Вы можете поделиться источником юмора как напрямую, так и через сервисы сокращения ссылок, например bit.ly. Если написанные нами шаги непонятны, можете отправить их нашему собственному ИИ и попросить объяснить «как ребёнку»."
   },
+
   "pt": {
     "siteTitle": "Mizahim Ben - Eu Sou o Humor",
     "currentJokes": "Piadas Atuais",
@@ -498,8 +407,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Ajuda",
     "indir": "Baixar",
     "newsletter": "Receba as últimas notificações de nós por e-mail (Apenas em inglês e turco)",
-    "neverShowButton": "Nunca mais mostrar este botão (até o cache ser limpo)"
+    "neverShowButton": "Nunca mais mostrar este botão (até o cache ser limpo)",
+    "notes": "*Dicas*: Cada fonte de humor tem seu próprio link exclusivo. Você pode compartilhar sua fonte de humor diretamente ou usando um serviço de encurtamento como o bit.ly. Se os passos escritos não estiverem claros, você pode enviá-los para nossa própria IA e pedir para explicar 'como se explicasse para uma criança'."
   },
+
   "hi": {
     "siteTitle": "Mizahim Ben - मैं हास्य हूँ",
     "currentJokes": "वर्तमान चुटकुले",
@@ -549,8 +460,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "मदद",
     "indir": "डाउनलोड करें",
     "newsletter": "हमसे नवीनतम सूचनाएं ई-मेल के माध्यम से प्राप्त करें (केवल अंग्रेजी और तुर्की में)",
-    "neverShowButton": "यह बटन फिर कभी न दिखाएँ (कैश साफ़ होने तक)"
+    "neverShowButton": "यह बटन फिर कभी न दिखाएँ (कैश साफ़ होने तक)",
+    "notes": "*सुझाव*: हर हास्य स्रोत का अपना अनोखा लिंक होता है। आप अपने हास्य स्रोत को सीधे या bit.ly जैसे शॉर्टनिंग सर्विस के जरिए साझा कर सकते हैं। अगर हमारे लिखे हुए चरण समझ में नहीं आ रहे हैं, तो आप इन चरणों को हमारी अपनी आर्टिफिशियल इंटेलिजेंस को भेजकर 'बच्चे को समझाने की तरह' समझाने के लिए कह सकते हैं।"
   },
+
   "es": {
     "siteTitle": "Mizahim Ben - Soy Humor",
     "siteDescription": "Solo buen humor, solo un sentido civilizado de la risa. - Vea el humor más reciente de diferentes fuentes. ¡Con IA incluida!",
@@ -619,8 +532,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Ayuda",
     "indir": "Descargar",
     "newsletter": "Recibe las últimas notificaciones de nosotros por correo electrónico (Solo en inglés y turco)",
-    "neverShowButton": "No volver a mostrar este botón (hasta que se borre la caché)"
+    "neverShowButton": "No volver a mostrar este botón (hasta que se borre la caché)",
+    "notes": "*Consejos*: Cada fuente de humor tiene su propio enlace único. Puedes compartir tu fuente de humor directamente o utilizando un servicio de acortamiento como bit.ly. Si los pasos que escribimos no se entienden, puedes enviárselos a nuestra propia IA y pedirle que los explique 'como si se lo explicara a un niño'."
   },
+
   "ja": {
     "siteTitle": "Mizahim Ben - 私はユーモアです",
     "siteDescription": "良質なユーモアと、洗練された笑いのセンスだけ。 - さまざまなソースからの最新のユーモアをご覧ください。AI搭載！",
@@ -689,8 +604,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "ヘルプ",
     "indir": "ダウンロード",
     "newsletter": "メールで最新の通知を受け取る (英語とトルコ語のみ)",
-    "neverShowButton": "このボタンを二度と表示しない (キャッシュがクリアされるまで)"
+    "neverShowButton": "このボタンを二度と表示しない (キャッシュがクリアされるまで)",
+    "notes": "*ヒント*：すべてのユーモアソースには独自のリンクがあります。直接共有するか、bit.lyのような短縮サービスを使ってユーモアソースを共有できます。書いた手順が分かりにくい場合は、これらの手順を私たちのAIに送って「子供に説明するように」説明してもらうことができます。"
   },
+
   "id": {
     "siteTitle": "Mizahim Ben - Saya Humor",
     "siteDescription": "Hanya humor yang baik, hanya selera tawa yang beradab. - Lihat humor terbaru dari berbagai sumber. Termasuk AI!",
@@ -759,8 +676,10 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "Bantuan",
     "indir": "Unduh",
     "newsletter": "Dapatkan notifikasi terbaru dari kami melalui E-mail (Hanya dalam bahasa Inggris dan Turki)",
-    "neverShowButton": "Jangan pernah tampilkan tombol ini lagi (sampai cache dibersihkan)"
+    "neverShowButton": "Jangan pernah tampilkan tombol ini lagi (sampai cache dibersihkan)",
+    "notes": "*Tips*: Setiap sumber humor memiliki tautan uniknya sendiri. Anda dapat membagikan sumber humor Anda secara langsung atau menggunakan layanan pemendek tautan seperti bit.ly. Jika langkah-langkah yang kami tulis kurang jelas, Anda dapat mengirimkan langkah-langkah tersebut ke AI kami sendiri dan memintanya untuk menjelaskan 'seperti menjelaskan kepada anak kecil'."
   },
+
   "ar": {
     "siteTitle": "Mizahim Ben - أنا الفكاهة",
     "siteDescription": "مجرد فكاهة جيدة، مجرد حس متحضر للضحك. - شاهد أحدث الفكاهة من مصادر مختلفة. معزز بالذكاء الاصطناعي!",
@@ -829,8 +748,9 @@ const translations: Record<Language, Record<string, string>> = {
     "yardim": "مساعدة",
     "indir": "تحميل",
     "newsletter": "احصل على آخر الإشعارات منا عبر البريد الإلكتروني (فقط باللغة الإنجليزية والتركية)",
-    "neverShowButton": "لا تظهر هذا الزر مرة أخرى (حتى يتم مسح ذاكرة التخزين المؤقت)"
-  },
+    "neverShowButton": "لا تظهر هذا الزر مرة أخرى (حتى يتم مسح ذاكرة التخزين المؤقت)",
+    "notes": "*نصائح*: لكل مصدر فكاهة رابط خاص به. يمكنك مشاركة مصدر الفكاهة الخاص بك مباشرة أو باستخدام خدمة تقصير الروابط مثل bit.ly. إذا كانت الخطوات التي كتبناها غير واضحة، يمكنك إرسالها إلى ذكائنا الاصطناعي الخاص وطلبه أن يشرحها 'كما لو كان يشرح لطفل صغير'."
+  }
 };
 export const useTranslation = () => {
     const context = useContext(SettingsContext);
