@@ -61,11 +61,13 @@ const HelpPage: React.FC = () => {
 
                 <h2 className="text-2xl font-semibold !mt-8 !mb-3">{t('helpStep4Title')}</h2>
                 <p>
-                    {t('helpStep4Desc')}
+                    {t('helpStep4Desc')} <br/>
+                    <b>{t('notes')}</b>
                 </p>
 
                 <p>
                     {t('helpContactUs')}
+                    
                 </p>
             </div>
         </div>
