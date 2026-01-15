@@ -63,6 +63,7 @@ const HelpPage: React.FC = () => {
                 <p>
                     {t('helpStep4Desc')} <br/>
                     <b>{t('notes')}</b>
+                    <p>Sadece Türkçe(Turkish) kısa video gösterim: <a href="https://www.instagram.com/reel/DTiX957iKMP/?igsh=MXhwZmVldnI1dDB2eQ==">Buraya tıkla </a></p>
                 </p>
 
                 <p>
